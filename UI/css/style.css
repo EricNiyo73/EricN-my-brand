@@ -10,6 +10,9 @@
   color: #fff;
   /* font-family: "Kanit", sans-serif; */
 }
+img {
+  width: 100%;
+}
 a {
   text-decoration: none !important;
 }
@@ -61,6 +64,18 @@ label {
   cursor: pointer;
   color: #fff;
 }
+.checkbtn {
+  font-size: 30px;
+  color: white;
+  float: right;
+  line-height: 80px;
+  margin-right: 40px;
+  cursor: pointer;
+  display: none;
+}
+#check {
+  display: none;
+}
 #nav-toggle {
   display: none;
 }
@@ -111,6 +126,21 @@ label {
   }
   label {
     display: block;
+  }
+  .checkbtn {
+    display: block;
+    float: right;
+  }
+  #check:checked ~ nav {
+    right: -1rem;
+  }
+  nav a {
+    position: fixed;
+    width: 60%;
+    background: #191942;
+    top: 80px;
+    float: right;
+    transition: all 0.5s;
   }
   #nav-toggle:checked + .navs {
     display: flex;
@@ -389,6 +419,9 @@ label {
   font-weight: bold;
   padding-bottom: 13px;
 }
+.single-blogs {
+  padding-right: 10px;
+}
 .posted-date i,
 span {
   color: #fee60c;
@@ -407,6 +440,7 @@ span {
 .all-blogs {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 .date-comments {
   display: flex;
@@ -423,8 +457,23 @@ span {
   cursor: pointer;
   transition: background-color 0.3s ease;
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .read-more-btn:hover {
   background-color: #fee60c;
+}
+@media screen and (max-width: 600px) {
+  .all-blogs {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .single-blogs {
+    width: 100%;
+    padding-right: 10px;
+  }
+  #blogs {
+    padding-left: 10px;
+    font-size: 12px;
+  }
 }
