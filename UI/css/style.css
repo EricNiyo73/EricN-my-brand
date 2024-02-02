@@ -463,10 +463,35 @@ span {
 .read-more-btn:hover {
   background-color: #fee60c;
 }
+.all-blogs > div {
+  flex-basis: 30%;
+  margin-left: 6%;
+  padding-right: 0rem;
+  align-self: auto;
+  height: 70%;
+  box-shadow: 0px 0px 40px #191942;
+}
+.all-blogs > div:hover {
+  box-shadow: 0px 0px 50px rgb(209, 206, 206);
+  transition: 1s;
+}
+.more-blogs {
+  justify-content: center;
+  text-align: center;
+  padding-left: 50px;
+}
+.more-blogs button {
+  padding: 10px;
+  background-color: #fee60c;
+  color: #191942;
+  font-weight: bold;
+  border-radius: 5px;
+}
 @media screen and (max-width: 600px) {
   .all-blogs {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
+    width: 90%;
   }
   .single-blogs {
     width: 100%;
@@ -475,5 +500,105 @@ span {
   #blogs {
     padding-left: 10px;
     font-size: 12px;
+  }
+  .read-more-btn {
+    width: 50%;
+  }
+}
+
+/* =========================CONTACTS ================================================================= */
+#contact {
+  padding-left: 40px;
+  padding-right: 10px;
+  font-family: 13px;
+  margin-top: 4rem;
+}
+.contact-header {
+  color: #fee60c;
+  padding-bottom: 14px;
+  font-weight: bold;
+}
+.contact-paragraph span {
+  color: white;
+  font-size: 15px;
+}
+.paragraph-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 17px;
+  border-bottom: 2px solid #fee60c;
+}
+.contact-form {
+  margin-top: -40px;
+}
+.form-group {
+  margin-top: 10px;
+}
+input {
+  width: 96%;
+  padding: 8px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+  border-right: #000;
+  border-top: #000;
+  border-left: #000;
+  outline: none;
+  border-bottom: 1px solid #fee60c;
+}
+.submit button {
+  margin-right: 25px;
+  margin-bottom: 20px;
+  float: right;
+  background-color: #fee60c;
+  color: #191942;
+  padding: 10px 15px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+.location-socilMedias {
+  display: flex;
+  margin-top: 10px;
+}
+.locations {
+  display: flex;
+  gap: 20px;
+}
+.contact-social-media {
+  margin-left: 46rem;
+
+  display: flex;
+  gap: 20px;
+}
+.contact-social-media i {
+  float: right;
+  color: #fee60c;
+  display: flex;
+}
+.footer {
+  text-align: center;
+  padding: 10px 0;
+  color: #fff;
+}
+
+@media screen and (max-width: 600px) {
+  .paragraph-form {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .contact-social-media {
+    margin-left: 10px;
+    display: flex;
+    gap: 20px;
+  }
+  .location-socilMedias {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  #contact {
+    padding-left: 40px;
+    padding-right: 10px;
+    font-family: 13px;
+    margin-top: -30px;
   }
 }
