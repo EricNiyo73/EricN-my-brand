@@ -1,0 +1,150 @@
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Bubbles&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+}
+.nav {
+  height: 5rem;
+  top: 0;
+  display: flex;
+  gap: 32rem;
+  position: fixed;
+  width: 100%;
+  background-color: #191942;
+
+  /* color: #fee60c; */
+  border-bottom: 1px solid #fee60c;
+}
+.logo {
+  color: #fee60c;
+  padding-left: 40px;
+  font-size: 25px;
+}
+ul li a {
+  color: #fee60c;
+  font-size: 18px;
+  font-family: "Kanit", sans-serif;
+  font-weight: bold;
+  border-radius: 3px;
+  text-transform: uppercase;
+  text-decoration: none;
+  float: right;
+  padding-right: 30px;
+}
+
+ul li {
+  list-style-type: none;
+}
+.leftnav {
+  padding-top: 30px;
+}
+.rightnav {
+  width: 100%;
+  padding-top: 30px;
+}
+a {
+  text-decoration: none !important;
+}
+section {
+  background-color: #191942;
+  display: flex;
+}
+.left-container {
+  padding-top: 10rem !important;
+  width: 20%;
+  height: 35rem;
+  background-color: #191950;
+}
+.left-container p {
+  padding-top: 2rem !important;
+  padding-left: 3rem;
+}
+.left-container p:hover {
+  background-color: #fee60c;
+  color: #191942;
+  border-radius: 5px;
+  cursor: pointer !important;
+  /* text-align: center; */
+}
+.dashboard {
+  display: flex;
+}
+
+.header {
+  color: #fff;
+  margin-top: 9rem;
+  text-align: center;
+
+  margin-bottom: 10px;
+  margin-left: 20rem;
+  width: 7%;
+}
+.users {
+  width: 100%;
+}
+h1 {
+  margin: 0;
+  border-bottom: 5px solid #fee60c;
+}
+
+.user-table {
+  width: 100%;
+  /* padding-top: 7rem; */
+  padding-left: 20px;
+}
+
+table {
+  width: 98%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #fee60c;
+  color: #191942;
+}
+
+.update-btn,
+.delete-btn {
+  background-color: #fee60c;
+  color: #191942;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+
+.update-btn:hover {
+  background-color: green;
+  color: white;
+}
+.delete-btn:hover {
+  background-color: red;
+  color: white;
+}
+i {
+  color: #191942;
+}
+/* .left-container {
+  position: fixed;
+  z-index: 1;
+} */

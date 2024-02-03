@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Bubbles&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+}
+.nav {
+  height: 5rem;
+  top: 0;
+  display: flex;
+  gap: 32rem;
+  position: fixed;
+  width: 100%;
+  background-color: #191942;
+
+  /* color: #fee60c; */
+  border-bottom: 1px solid #fee60c;
+}
+.logo {
+  color: #fee60c;
+  padding-left: 40px;
+  font-size: 25px;
+}
+ul li a {
+  color: #fee60c;
+  font-size: 18px;
+  font-family: "Kanit", sans-serif;
+  font-weight: bold;
+  border-radius: 3px;
+  text-transform: uppercase;
+  text-decoration: none;
+  float: right;
+  padding-right: 30px;
+}
+
+ul li {
+  list-style-type: none;
+}
+.leftnav {
+  padding-top: 30px;
+}
+.rightnav {
+  width: 100%;
+  padding-top: 30px;
+}
+a {
+  text-decoration: none !important;
+}
+section {
+  background-color: #191942;
+  display: flex;
+}
+.left-container {
+  padding-top: 10rem !important;
+  width: 20%;
+  height: 35rem;
+  background-color: #191950;
+
+  /* border-right: 1px solid #fee60c; */
+}
+.left-container p {
+  padding-top: 2rem !important;
+  padding-left: 3rem;
+}
+.left-container p:hover {
+  background-color: #fee60c;
+  color: #191942;
+  border-radius: 5px;
+  cursor: pointer !important;
+  /* text-align: center; */
+}
+.dashboard {
+  display: flex;
+}
+header {
+  /* background-color: #3498db; */
+  color: #fff;
+  padding: 20px;
+  margin-top: 5rem;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+}
+
+.message-lists {
+  padding-top: 3rem;
+  /* max-width: 800px; */
+  padding-right: 10px;
+  padding-right: 10px;
+  margin: 10px auto;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.message {
+  /* background-color: #fff; */
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  padding: 50px;
+  border-radius: 5px;
+}
+
+.message-info {
+  display: grid;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.sender {
+  font-weight: bold;
+}
+
+.date {
+  color: #555;
+}
+
+.message-content {
+  margin: 0;
+}
