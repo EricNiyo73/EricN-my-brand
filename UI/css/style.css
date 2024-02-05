@@ -10,7 +10,7 @@
   color: #fff;
   /* font-family: "Kanit", sans-serif; */
 }
-img {
+.righthome img {
   width: 100%;
 }
 a {
@@ -82,29 +82,6 @@ label {
 #nav-toggle:checked + label {
   color: #fee60c;
 }
-/* media query for screens smaller than 768px (tablet) */
-/* @media screen and (max-width: 768px) {
-  .navbar {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .navs {
-    text-align: center;
-  }
-
-  nav {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  nav a {
-    padding: 15px 0;
-    display: block;
-  } */
-/* } */
 
 /*  media query for screens smaller than 480px (mobile) */
 @media screen and (max-width: 600px) {
@@ -146,7 +123,25 @@ label {
     display: flex;
   }
 }
-
+/* tablets */
+@media screen and (max-width: 980px) {
+  .navbar {
+    display: flex;
+    background-color: #191942;
+    gap: 6rem;
+    border-bottom: 2px solid #fee60c;
+  }
+  nav a {
+    text-decoration: none;
+    color: #fff;
+    padding: 15px 10px;
+    font-size: 15px;
+  }
+  .righthome img {
+    /* width: none; */
+    padding-top: 5rem;
+  }
+}
 /* =========================home===================== */
 #home {
   display: grid;
@@ -225,7 +220,8 @@ label {
     width: 100%;
   }
 }
-
+@media only screen and (max-width: 768px) {
+}
 /* =====================About======================== */
 .firstabout {
   display: flex;
@@ -325,7 +321,18 @@ label {
     padding-left: 10px;
   }
 }
-
+@media screen and (max-width: 980px) {
+  .firstabout {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .about-Intro {
+    width: 100%;
+  }
+  .all-skills {
+    padding-left: 30px;
+  }
+}
 /* ==========================portfolio ========================= */
 #portfolio {
   margin-left: 40px;
@@ -395,6 +402,12 @@ label {
   color: #191942;
   background-color: #fee60c;
 }
+@media screen and (max-width: 980px) {
+  .all-portfolio {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 @media screen and (max-width: 600px) {
   #portfolio {
     margin-left: 10px;
@@ -410,14 +423,17 @@ label {
 
 /* ==================blogs=========================== */
 #blogs {
-  padding-left: 40px;
+  padding-left: 10px;
   font-size: 12px;
+  padding-right: 20px;
+  width: 100%;
 }
 .blogs-header {
   color: #fee60c;
   font-size: 17px;
   font-weight: bold;
-  padding-bottom: 13px;
+  padding-bottom: 20px;
+  margin-left: 50px;
 }
 .single-blogs {
   padding-right: 10px;
@@ -487,16 +503,22 @@ span {
   font-weight: bold;
   border-radius: 5px;
 }
+@media screen and (max-width: 980px) {
+  .all-blogs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .single-blogs {
+    padding-left: 5px;
+  }
+}
 @media screen and (max-width: 600px) {
   .all-blogs {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    width: 90%;
-  }
-  .single-blogs {
     width: 100%;
-    padding-right: 10px;
   }
+
   #blogs {
     padding-left: 10px;
     font-size: 12px;
@@ -579,7 +601,15 @@ input {
   padding: 10px 0;
   color: #fff;
 }
-
+@media screen and (max-width: 980px) {
+  .location-socilMedias {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .contact-social-media {
+    margin-left: 60px;
+  }
+}
 @media screen and (max-width: 600px) {
   .paragraph-form {
     width: 100%;
@@ -600,5 +630,8 @@ input {
     padding-right: 10px;
     font-family: 13px;
     margin-top: -30px;
+  }
+  .form-group label {
+    font-size: 14px;
   }
 }

@@ -14,7 +14,7 @@
   height: 5rem;
   top: 0;
   display: flex;
-  gap: 32rem;
+  /* gap: 32rem; */
   position: fixed;
   width: 100%;
   background-color: #191942;
@@ -74,15 +74,13 @@ section {
 }
 .login-div > div {
   padding: 20px 50px;
-  /* background-color: aqua !important; */
-  /* width: 50%; */
 }
 /* .not-member {
   width: 50%;
-}
-.form-group {
-  width: 50%;
 } */
+.form-group {
+  padding: 1.6rem;
+}
 .login-title {
   text-align: center;
   width: 35%;
@@ -188,4 +186,44 @@ input[type="password"] {
 i,
 span {
   color: #fee60c;
+}
+
+@media screen and (max-width: 980px) {
+  .nav {
+    height: 5rem;
+    top: 0;
+    display: flex;
+    float: inherit;
+    width: 100%;
+  }
+  .location-socilMedias {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding-left: 20px;
+    margin-top: 10px;
+    margin-right: 20px;
+    gap: 2rem;
+  }
+  .login-div {
+    background-color: #191950;
+    margin-left: 10rem;
+    margin-right: 10rem;
+  }
+  .login-title {
+    text-align: center;
+    width: 50%;
+    padding-bottom: 30px;
+    margin-left: 8rem;
+    margin-right: 16rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .location-socilMedias {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    padding-left: 20px;
+    margin-top: 10px;
+    margin-right: 20px;
+    gap: 2rem;
+  }
 }
