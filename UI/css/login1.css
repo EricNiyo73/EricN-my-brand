@@ -216,8 +216,23 @@ span {
     margin-left: 8rem;
     margin-right: 16rem;
   }
+  .contact-social-media {
+    display: flex;
+    gap: 30px;
+    float: right;
+  }
+  .subscribe-form {
+    justify-content: center;
+    text-align: center;
+    margin-left: 15rem;
+  }
 }
 @media screen and (max-width: 600px) {
+  .subscribe-form {
+    justify-content: center;
+    text-align: center;
+    margin-left: 0;
+  }
   .location-socilMedias {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
@@ -225,5 +240,18 @@ span {
     margin-top: 10px;
     margin-right: 20px;
     gap: 2rem;
+  }
+  .login-title {
+    text-align: center;
+    width: 50%;
+    padding-bottom: 30px;
+    margin-left: 1rem;
+    margin-right: 16rem;
+  }
+  .login-div {
+    background-color: #191950;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    width: 80%;
   }
 }
