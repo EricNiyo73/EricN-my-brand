@@ -13,18 +13,21 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
-   <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/yourcode.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <div class="navbar">
       <div class="logo">EricTech</div>
-    
+
       <div class="navs">
         <nav>
-  <input type="checkbox" id="check" />
-      <label for="check" class="checkbtn">
-        <i class="fas fa-bars"></i>
-      </label>
+          <input type="checkbox" id="check" />
+          <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+          </label>
           <a href="#home">HOME</a>
           <a href="#about-me">ABOUT ME</a>
           <a href="#portfolio">PORTFOLIO</a>
@@ -211,7 +214,7 @@
       <div class="blogs-header">BLOGS</div>
       <div class="all-blogs">
         <div class="single-blogs">
-          <div class="blog-image"><img src="UI/Images/blog1.png" alt="" /></div>
+          <img src="UI/Images/blog1.png" alt="" />
           <div class="date-comments">
             <div class="posted-date">
               <i class="fas fa-clock"></i>
@@ -254,7 +257,7 @@
           </div>
           <div class="read-more-btn">Read More</div>
         </div>
-        <div class="remaining-blogs">
+        <div class="single-blogs">
           <div class="blog-image"><img src="UI/Images/blog1.png" alt="" /></div>
           <div class="date-comments">
             <div class="posted-date">
@@ -280,36 +283,53 @@
       <div class="more-blogs"><button>READ MORE BLOGS</button></div>
     </section>
     <section id="contact">
-      
       <div class="paragraph-form">
         <div class="contact-paragraph">
           <p class="contact-header">CONTACT</p>
-        <span
-          >I would like to hear about your project and how I could help. Please
-          fill the form, and I’ll get back to you as soon as possible
-        </span>
-      </div>
-      <div class="contact-form">
-        <p class="contact-header">FILL THIS FORM</p>
-        <form action="">
-          <div class="form-group">
-            <input type="text" id="name" name="name" required placeholder="Names" />
-            <label for="name">Names</label>
-          </div>
- <div class="form-group">
-            <input type="text" id="email" name="email" placeholder="Email" required />
-            <label for="email">Email</label>
-          </div>
-          <div class="form-group">
-            <input type="text" id="message" name="message" required placeholder="Message"/>
-            <label for="message">Message</label>
-          </div>
-         
-          <div class="submit">
-            <button type="submit" class="message-btn">SEND MESSAGE</button>
-          </div>
-      </div>
-        </form>
+          <span
+            >I would like to hear about your project and how I could help.
+            Please fill the form, and I’ll get back to you as soon as possible
+          </span>
+        </div>
+        <div class="contact-form">
+          <p class="contact-header">FILL THIS FORM</p>
+          <form action="">
+            <div class="form-group">
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                placeholder="Names"
+              />
+              <label for="name">Names</label>
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                id="email"
+                name="email"
+                placeholder="Email"
+                required
+              />
+              <label for="email">Email</label>
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                id="message"
+                name="message"
+                required
+                placeholder="Message"
+              />
+              <label for="message">Message</label>
+            </div>
+
+            <div class="submit">
+              <button type="submit" class="message-btn">SEND MESSAGE</button>
+            </div>
+          </form>
+        </div>
       </div>
       <div class="location-socilMedias">
         <div class="locations">
@@ -323,32 +343,39 @@
             <i class="fas fa-map-marker-alt"></i> <span>Kigali City</span>
           </div>
         </div>
-           <div class="contact-social-media">
+        <div class="contact-social-media">
           <div class="">
             <a href="https://github.com/" target="_blank"
-            ><i class="fab fa-github"></i
-          ></a>
+              ><i class="fab fa-github"></i
+            ></a>
           </div>
-        <div class="">
+          <div class="">
             <a href="mailto:ericnemachine@gmail.com" target="_blank"
-            ><i class="fas fa-envelope"></i
-          ></a>
-        </div>
-         <div class="">
-           <a href="https://www.linkedin.com/in/" target="_blank"
-            ><i class="fab fa-linkedin"></i
-          ></a>
-         </div>
+              ><i class="fas fa-envelope"></i
+            ></a>
+          </div>
+          <div class="">
+            <a href="https://www.linkedin.com/in/" target="_blank"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+          </div>
           <div class="">
             <a href="https://twitter.com/" target="_blank"
-            ><i class="fab fa-twitter"></i
-          ></a>
+              ><i class="fab fa-twitter"></i
+            ></a>
           </div>
-        </div> 
+        </div>
+        <div class="subscribe-form">
+          <input
+            type="email"
+            class="subscribe-input"
+            placeholder="Enter your email"
+          />
+          <button class="subscribe-btn">Subscribe</button>
+        </div>
       </div>
-   <div class="footer">
-     &copy; 2024 Eric NIYOKWIZERWA - Web Developer
-   </div>
+
+      <div class="footer">&copy; 2024 Eric NIYOKWIZERWA - Web Developer</div>
     </section>
   </body>
 </html>

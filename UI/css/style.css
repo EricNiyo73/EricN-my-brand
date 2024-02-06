@@ -6,7 +6,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-  background-color: #191942;
+  /* background-color: #191942; */
   color: #fff;
   /* font-family: "Kanit", sans-serif; */
 }
@@ -17,6 +17,8 @@ a {
   text-decoration: none !important;
 }
 section {
+  background-color: #191942;
+
   padding-top: 7rem;
 }
 html {
@@ -199,6 +201,7 @@ nav a:hover {
   section {
     padding-left: 20px;
     width: 100%;
+    right: 0;
   }
   #home {
     padding-top: 10rem;
@@ -212,8 +215,9 @@ nav a:hover {
   .home-line {
     width: 100%;
   }
-  .home-social-media i {
-    float: right;
+  .home-social-media {
+    align-content: center;
+    width: 100%;
   }
   .righthome {
     order: 1;
@@ -227,6 +231,7 @@ nav a:hover {
   }
   .lefthome {
     order: 2;
+    width: 100%;
   }
 }
 @media only screen and (max-width: 980px) {
@@ -333,8 +338,10 @@ nav a:hover {
     display: grid;
   }
   .all-skills {
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    padding-right: 0;
   }
   .about-Intro {
     width: 100%;
@@ -365,8 +372,9 @@ nav a:hover {
 }
 /* ==========================portfolio ========================= */
 #portfolio {
-  margin-left: 40px;
+  /* margin-left: 40px; */
   font-size: 13px;
+  padding-left: 40px;
 }
 .portfolio {
   color: #fee60c;
@@ -465,8 +473,13 @@ nav a:hover {
   padding-bottom: 20px;
   margin-left: 50px;
 }
+.single-blogs img {
+  width: 100%;
+  padding-bottom: 10px;
+}
 .single-blogs {
   padding-right: 10px;
+  /* background-color: #988c0e; */
 }
 .posted-date i,
 span {
@@ -563,7 +576,6 @@ span {
   padding-left: 40px;
   padding-right: 10px;
   font-family: 13px;
-  margin-top: 4rem;
 }
 .contact-header {
   color: #fee60c;
@@ -594,6 +606,7 @@ input {
   border-right: #000;
   border-top: #000;
   border-left: #000;
+  background-color: #191942;
   outline: none;
   border-bottom: 1px solid #fee60c;
 }
@@ -610,14 +623,14 @@ input {
 .location-socilMedias {
   display: flex;
   margin-top: 10px;
+  gap: 10rem;
 }
 .locations {
   display: flex;
   gap: 20px;
 }
 .contact-social-media {
-  margin-left: 46rem;
-
+  /* margin-left: 10rem; */
   display: flex;
   gap: 20px;
 }
@@ -626,23 +639,78 @@ input {
   color: #fee60c;
   display: flex;
 }
+.subscribe-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin-top: 10px; */
+}
+.form-group label {
+  display: none;
+}
+.subscribe-input {
+  padding: 3px;
+  border: 1px solid #fee60c;
+  border-radius: 5px;
+  margin-right: 10px;
+  background-color: #fff;
+  width: 200px;
+}
+
+.subscribe-btn {
+  background-color: #fee60c;
+  color: #191942;
+  padding: 3px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.subscribe-btn:hover {
+  background-color: #988c0e;
+}
 .footer {
   text-align: center;
   padding: 10px 0;
   color: #fff;
 }
+@media screen and (max-width: 1200px) {
+  .location-socilMedias {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .contact-social-media {
+    font-size: 25px;
+    margin-left: 40px;
+  }
+}
 @media screen and (max-width: 980px) {
   .location-socilMedias {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
   .contact-social-media {
-    margin-left: 60px;
+    font-size: 19px;
+    margin-left: 120px;
+  }
+  .contact-social-media i {
+    margin-left: 10px;
+  }
+  .subscribe-form {
+    margin-top: 20px;
+    margin-left: -10px;
   }
 }
 @media screen and (max-width: 600px) {
-  .paragraph-form {
+  #contact {
     width: 100%;
+  }
+  .contact-form {
+    margin-top: 0px;
+  }
+  .paragraph-form {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
   }
@@ -651,10 +719,14 @@ input {
     display: flex;
     gap: 20px;
   }
+  .contact-paragraph {
+    width: 100%;
+  }
   .location-socilMedias {
     font-size: 12px;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
   }
   #contact {
     padding-left: 40px;
@@ -663,6 +735,6 @@ input {
     margin-top: -30px;
   }
   .form-group label {
-    font-size: 14px;
+    display: none;
   }
 }
