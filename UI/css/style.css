@@ -235,6 +235,9 @@ nav a:hover {
   text-align: center;
   border-radius: 5px;
 }
+.hireme a {
+  color: #191942;
+}
 .home-line {
   margin-top: 55px;
   background-color: #fee60c;
