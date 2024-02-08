@@ -124,6 +124,27 @@ h1 {
 .message-content {
   margin: 0;
 }
+.reply-container {
+  margin-top: 10px;
+}
+
+.reply-input {
+  width: calc(100% - 80px);
+  padding: 8px;
+  color: #191942;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.reply-btn {
+  width: 70px;
+  background-color: #fee60c;
+  color: #191942;
+  border: none;
+  border-radius: 3px;
+  padding: 8px 10px;
+  cursor: pointer;
+}
 
 /* =========================== */
 @media screen and (max-width: 970px) {

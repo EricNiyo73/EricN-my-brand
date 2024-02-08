@@ -134,7 +134,7 @@ nav a:hover {
     font-size: 12px;
   }
 }
-@media screen and (max-width: 790px) {
+@media screen and (max-width: 806px) {
   .navbar {
     display: flex;
     background-color: #191942;
@@ -260,9 +260,30 @@ nav a:hover {
   width: 70%;
 }
 /* =====================responsive-media============= */
+@media only screen and (max-width: 980px) {
+  #home {
+    padding-top: 10rem;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+  }
+  .righthome {
+    order: 1;
+    margin-left: 6px;
+    padding-top: 0;
+    width: 100%;
+  }
+  .lefthome {
+    order: 2;
+    margin-left: 6px;
+  }
+  .righthome img {
+    width: 90%;
+  }
+}
 @media screen and (max-width: 600px) {
   section {
-    padding-left: 20px;
+    padding-left: 15px;
     width: 100%;
     right: 0;
   }
@@ -295,28 +316,7 @@ nav a:hover {
   .lefthome {
     order: 2;
     width: 100%;
-  }
-}
-@media only screen and (max-width: 980px) {
-  #home {
-    padding-top: 10rem;
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 10px;
-  }
-  .righthome {
-    order: 1;
-    margin-left: 10px;
-    padding-top: 0;
-    width: 100%;
-    margin-top: 0;
-  }
-  .lefthome {
-    order: 2;
-    padding: 20px;
-  }
-  .righthome img {
-    width: 90%;
+    padding-left: 6px;
   }
 }
 
