@@ -6,9 +6,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-  /* background-color: #191942; */
   color: #fff;
-  /* font-family: "Kanit", sans-serif; */
 }
 .righthome img {
   width: 100%;
@@ -27,7 +25,7 @@ html {
 .navbar {
   display: flex;
   background-color: #191942;
-  gap: 31rem;
+  gap: 29rem;
   border-bottom: 2px solid #fee60c;
   position: fixed;
   width: 100%;
@@ -72,10 +70,47 @@ nav a:hover {
 #check {
   display: none;
 }
+@media only screen and (max-width: 1270px) {
+  .navbar {
+    display: flex;
+    background-color: #191942;
+    border-bottom: 2px solid #fee60c;
+    gap: 27rem;
+  }
+  nav a {
+    text-decoration: none;
+    color: #fff;
+    padding: 15px 10px;
+    font-size: 15px;
+  }
+}
 @media only screen and (max-width: 1200px) {
   .navbar {
     display: flex;
     background-color: #191942;
+    border-bottom: 2px solid #fee60c;
+    gap: 16rem;
+  }
+}
+@media screen and (max-width: 1036px) {
+  .navbar {
+    display: flex;
+    background-color: #191942;
+    border-bottom: 2px solid #fee60c;
+    gap: 22rem;
+  }
+  nav a {
+    text-decoration: none;
+    color: #fff;
+    padding: 15px 10px;
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 990px) {
+  .navbar {
+    display: flex;
+    background-color: #191942;
+    gap: 18rem;
     border-bottom: 2px solid #fee60c;
   }
   nav a {
@@ -85,7 +120,21 @@ nav a:hover {
     font-size: 15px;
   }
 }
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 930px) {
+  .navbar {
+    display: flex;
+    background-color: #191942;
+    gap: 15rem;
+    border-bottom: 2px solid #fee60c;
+  }
+  nav a {
+    text-decoration: none;
+    color: #fff;
+    padding: 15px 10px;
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 790px) {
   .navbar {
     display: flex;
     background-color: #191942;
@@ -96,10 +145,24 @@ nav a:hover {
     text-decoration: none;
     color: #fff;
     padding: 15px 10px;
-    font-size: 15px;
+    font-size: 12px;
   }
 }
-/*  media query for screens smaller than 480px (mobile) */
+@media screen and (max-width: 730px) {
+  .navbar {
+    display: flex;
+    background-color: #191942;
+    gap: 8rem;
+    border-bottom: 2px solid #fee60c;
+    font-size: 10px;
+  }
+  nav a {
+    text-decoration: none;
+    color: #fff;
+    padding: 15px 7px;
+    font-size: 9px;
+  }
+}
 @media screen and (max-width: 600px) {
   .logo {
     padding: 10px;
@@ -324,7 +387,18 @@ nav a:hover {
   grid-template-columns: repeat(2, 1fr);
   gap: 3rem;
 }
-
+@media screen and (max-width: 980px) {
+  .firstabout {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .about-Intro {
+    width: 100%;
+  }
+  .all-skills {
+    padding-left: 30px;
+  }
+}
 @media screen and (max-width: 600px) {
   .second-about {
     display: grid;
@@ -342,6 +416,8 @@ nav a:hover {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     padding-right: 0;
+    padding-left: 5px;
+    padding-right: 10px;
   }
   .about-Intro {
     width: 100%;
@@ -357,19 +433,12 @@ nav a:hover {
     padding-top: 40px;
     padding-left: 10px;
   }
-}
-@media screen and (max-width: 980px) {
-  .firstabout {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-  }
-  .about-Intro {
-    width: 100%;
-  }
-  .all-skills {
-    padding-left: 30px;
+  .skills {
+    font-size: 12px;
+    text-align: center;
   }
 }
+
 /* ==========================portfolio ========================= */
 #portfolio {
   /* margin-left: 40px; */
@@ -466,6 +535,9 @@ nav a:hover {
   padding-right: 20px;
   width: 100%;
 }
+.read-more-btn a {
+  color: #191942;
+}
 .blogs-header {
   color: #fee60c;
   font-size: 17px;
@@ -528,10 +600,10 @@ span {
   padding-right: 0rem;
   align-self: auto;
   height: 70%;
-  box-shadow: 0px 0px 40px #191942;
+  /* box-shadow: 0px 0px 40px #191942; */
 }
 .all-blogs > div:hover {
-  box-shadow: 0px 0px 50px rgb(209, 206, 206);
+  /* box-shadow: 0px 0px 50px rgb(209, 206, 206); */
   transition: 1s;
 }
 .more-blogs {
