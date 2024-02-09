@@ -207,9 +207,10 @@ nav a:hover {
 #home {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 17px;
+  gap: 80px;
 }
 .lefthome {
+  padding-top: 2.5rem;
   padding-left: 40px;
   /* width: 60%; */
 }
@@ -255,11 +256,10 @@ nav a:hover {
 }
 .righthome {
   /* background-color: aqua; */
-  margin-left: 9rem;
   margin-top: -50px;
 }
 .righthome img {
-  float: right;
+  /* float: right; */
   width: 70%;
 }
 /* =====================responsive-media============= */
@@ -297,7 +297,7 @@ nav a:hover {
     gap: 10px;
   }
   .hireme {
-    width: 50%;
+    width: 20;
   }
   .home-line {
     width: 100%;
@@ -470,6 +470,9 @@ nav a:hover {
 .single-portfolio {
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0px 0px 2px #7e7e83;
+  padding: 14px;
+  border-radius: 5px;
 }
 .work-title {
   color: #fee60c;
@@ -482,7 +485,7 @@ nav a:hover {
 .git-button {
   background-color: #fee60c;
   text-align: center;
-  padding: 7px 30px;
+  padding: 10px 10px;
   color: #191942;
   font-weight: bold;
   border-radius: 5px;
@@ -498,7 +501,7 @@ nav a:hover {
 .demo-button {
   background-color: #fee60c;
   text-align: center;
-  padding: 7px 50px;
+  padding: 10px 10px;
   color: #191942;
   font-weight: bold;
   border-radius: 5px;
@@ -555,6 +558,10 @@ nav a:hover {
 .single-blogs {
   padding-right: 10px;
   /* background-color: #988c0e; */
+  box-shadow: 0px 0px 2px #7e7e83;
+  padding: 10px;
+  padding-bottom: 170px;
+  border-radius: 5px;
 }
 .posted-date i,
 span {
