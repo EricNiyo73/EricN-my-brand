@@ -40,6 +40,42 @@ ul li a {
 ul li {
   list-style-type: none;
 }
+
+/* ========================================================= */
+nav {
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  padding: 15px 20px;
+  font-size: 15px;
+  display: block;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+nav a:hover {
+  background-color: #fee60c;
+  color: #191942;
+  border-radius: 5px;
+}
+.checkbtn {
+  font-size: 50px;
+  color: #fee60c;
+  float: right;
+  line-height: 80px;
+  margin-right: 40px;
+  cursor: pointer;
+  display: none;
+}
+#check {
+  display: none;
+}
+/* ====================================== */
 .leftnav {
   padding-top: 30px;
 }
@@ -67,8 +103,8 @@ section {
   padding-left: 3rem;
 }
 .left-container p:hover {
-  background-color: #fee60c;
-  color: #191942;
+  /* background-color: #fee60c; */
+  /* color: #191942; */
   border-radius: 5px;
   cursor: pointer !important;
   /* text-align: center; */

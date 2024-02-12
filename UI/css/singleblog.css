@@ -221,7 +221,7 @@ nav a:hover {
 }
 .right-single-container {
   display: flex;
-  box-shadow: 0px 0px 20px #d4d4e6;
+  box-shadow: 0px 0px 2px #d4d4e6;
 }
 .right-all-container {
   display: grid;

@@ -40,6 +40,41 @@ ul li a {
 ul li {
   list-style-type: none;
 }
+
+/* ==================================================== */
+nav {
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  padding: 15px 20px;
+  font-size: 15px;
+  display: block;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+nav a:hover {
+  background-color: #fee60c;
+  color: #191942;
+  border-radius: 5px;
+}
+.checkbtn {
+  font-size: 50px;
+  color: #fee60c;
+  float: right;
+  line-height: 80px;
+  margin-right: 40px;
+  cursor: pointer;
+  display: none;
+}
+#check {
+  display: none;
+}
 .leftnav {
   padding-top: 30px;
 }
@@ -62,17 +97,7 @@ section {
 
   /* border-right: 1px solid #fee60c; */
 }
-.left-container p {
-  padding-top: 2rem !important;
-  padding-left: 3rem;
-}
-.left-container p:hover {
-  background-color: #fee60c;
-  color: #191942;
-  border-radius: 5px;
-  cursor: pointer !important;
-  /* text-align: center; */
-}
+
 .dashboard {
   display: flex;
 }
@@ -167,9 +192,14 @@ h1 {
     height: 0;
     display: flex;
   }
-  .left-container p {
+  nav {
     display: flex;
-    font-size: 15px;
+  }
+  nav a {
+    font-size: 12px;
+  }
+  .all-message {
+    margin-top: 30px;
   }
   .message-lists {
     padding: 10px;
@@ -210,16 +240,8 @@ h1 {
     height: 0;
     display: flex;
   }
-  .left-container p {
-    display: flex;
-    font-size: 12px;
-  }
 }
 @media screen and (max-width: 435px) {
-  .left-container p {
-    padding-top: 2rem !important;
-    padding-left: 1rem;
-  }
   .logo {
     color: #fee60c;
     padding-left: 40px;
