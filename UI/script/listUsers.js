@@ -16,7 +16,7 @@ function displayUserList() {
       var row = userListTable.insertRow();
       var cellNo = row.insertCell(0);
       var cellFullName = row.insertCell(1);
-      var cellEmail = row.insertCell(1);
+      var cellEmail = row.insertCell(2);
       var cellActions = row.insertCell(3);
 
       cellNo.textContent = i + 1;
