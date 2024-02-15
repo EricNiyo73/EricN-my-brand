@@ -305,21 +305,16 @@
             <div class="form-group">
               <input
                 type="text"
-                id="name"
+                id="fullName"
                 name="name"
-                required
                 placeholder="Names"
               />
+              <small id="nameError"></small>
               <label for="name">Names</label>
             </div>
             <div class="form-group">
-              <input
-                type="text"
-                id="email"
-                name="email"
-                placeholder="Email"
-                required
-              />
+              <input type="text" id="email" name="email" placeholder="Email" />
+              <small id="emailError"></small>
               <label for="email">Email</label>
             </div>
             <div class="form-group">
@@ -327,14 +322,16 @@
                 type="text"
                 id="message"
                 name="message"
-                required
                 placeholder="Message"
               />
+              <small id="messageError"></small>
               <label for="message">Message</label>
             </div>
 
             <div class="submit">
-              <button type="submit" class="message-btn">SEND MESSAGE</button>
+              <button type="submit" class="message-btn" id="message-btn">
+                SEND MESSAGE
+              </button>
             </div>
           </form>
         </div>
@@ -377,13 +374,15 @@
           <input
             type="email"
             class="subscribe-input"
+            id="sub-input"
             placeholder="Enter your email"
           />
-          <button class="subscribe-btn">Subscribe</button>
+          <button class="subscribe-btn" id="sub-btn">Subscribe</button>
         </div>
       </div>
-
       <div class="footer">&copy; 2024 Eric NIYOKWIZERWA - Web Developer</div>
     </section>
+    <script src="/UI/script/contactValidatio.js"></script>
+    <script src="/UI/script/subscribers.js"></script>
   </body>
 </html>

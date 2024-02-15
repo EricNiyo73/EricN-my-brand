@@ -19,32 +19,76 @@
     ></script>
   </head>
   <body>
-    <div class="nav">
-      <div class="leftnav">
-        <label for="" class="logo"> <a href="/index.html">DASHBOARD</a></label>
-      </div>
-      <div class="rightnav">
-        <ul>
-          <li><a class="" href="../../index.html">LOGOUT</a></li>
-        </ul>
-      </div>
-    </div>
-    <section id="dashboard">
-      <div class="left-container">
-        <nav>
-          <input type="checkbox" id="check" />
-          <label for="check" class="checkbtn">
-            <i class="fas fa-bars"></i>
-          </label>
-          <a href="../Admin/message.html">DASHBOARD</a>
+    <nav>
+      <ul class="sidebar">
+        <li onclick="HideSidebar()">
+          <a href="#">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24"
+              viewBox="0 -960 960 960"
+              width="24"
+            >
+              <path
+                d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
+              />
+            </svg>
+          </a>
+        </li>
+        <li><a href="/index.html">DASHBOARD</a></li>
+        <li>
           <a href="../Admin/allusers.html">ALL USERS</a>
+        </li>
+        <li>
           <a href="../Admin/allBlogs.html">ALL BLOGS</a>
+        </li>
+        <li>
           <a href="../Admin/addBlog.html">ADD BLOG</a>
-
-          <a href="../Admin/message.html">MESSAGE</a>
+        </li>
+        <li class="hidenMobile"><a href="../Admin/message.html">MESSAGE</a></li>
+        <li>
           <a href="../Admin/subscribers.html">SUBSCRIBERS</a>
-        </nav>
-      </div>
+        </li>
+        <li>
+          <a class="" href="../../index.html">LOGOUT</a>
+        </li>
+      </ul>
+      <ul class="fixed-bar">
+        <li><a href="">DASHBOARD</li>
+        <li class="hidenMobile"><a href="/index.html">DASHBOARD</a></li>
+        <li class="hidenMobile">
+          <a href="../Admin/allusers.html">ALL USERS</a>
+        </li>
+        <li class="hidenMobile">
+          <a href="../Admin/allBlogs.html">ALL BLOGS</a>
+        </li>
+        <li class="hidenMobile">
+          <a href="../Admin/addBlog.html">ADD BLOG</a>
+        </li>
+        <li class="hidenMobile"><a href="../Admin/message.html">MESSAGE</a></li>
+        <li class="hidenMobile">
+          <a href="../Admin/subscribers.html">SUBSCRIBERS</a>
+        </li>
+        <li class="hidenMobile">
+          <a class="" href="../../index.html">LOGOUT</a>
+        </li>
+        <li class="menu-button" onclick="showSidebar()">
+          <a href="#">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24"
+              viewBox="0 -960 960 960"
+              width="24"
+            >
+              <path
+                d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"
+              />
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <section id="dashboard">
       <div class="users">
         <div class="header">
           <h1>Users</h1>
@@ -124,5 +168,7 @@
         </div>
       </div>
     </section>
+    <script src="../../script/index.js"></script>
+
   </body>
 </html>

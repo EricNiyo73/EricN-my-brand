@@ -8,110 +8,94 @@
   font-family: "Poppins", sans-serif;
   color: #fff;
 }
-.nav {
-  height: 5rem;
-  top: 0;
-  display: flex;
-  gap: 32rem;
-  position: fixed;
-  width: 100%;
-  background-color: #191942;
-
-  /* color: #fee60c; */
-  border-bottom: 1px solid #fee60c;
-}
-.logo {
-  color: #fee60c;
-  padding-left: 40px;
-  font-size: 25px;
-}
-ul li a {
-  color: #fee60c;
-  font-size: 18px;
-  font-family: "Kanit", sans-serif;
-  font-weight: bold;
-  border-radius: 3px;
-  text-transform: uppercase;
-  text-decoration: none;
-  float: right;
-  padding-right: 30px;
-}
-
-ul li {
-  list-style-type: none;
-}
-
-/* ========================================================= */
-nav {
-  color: #fff;
-  text-align: center;
-  padding: 10px 0;
-}
-
-nav a {
-  text-decoration: none;
-  color: #fff;
-  padding: 15px 20px;
-  font-size: 15px;
-  display: block;
-  justify-content: flex-end;
-  align-items: flex-end;
-}
-
-nav a:hover {
-  background-color: #fee60c;
-  color: #191942;
-  border-radius: 5px;
-}
-.checkbtn {
-  font-size: 50px;
-  color: #fee60c;
-  float: right;
-  line-height: 80px;
-  margin-right: 40px;
-  cursor: pointer;
-  display: none;
-}
-#check {
-  display: none;
-}
-/* ====================================== */
-.leftnav {
-  padding-top: 30px;
-}
-.rightnav {
-  width: 100%;
-  padding-top: 30px;
-}
-a {
-  text-decoration: none !important;
+body {
+  min-height: 100vh;
 }
 section {
   background-color: #191942;
+  /* display: flex */
+}
+nav {
+  background-color: #191942;
+  /* box-shadow: 3px 3px rgba(r0ed, 0, 0, 1); */
+}
+nav ul {
+  width: 100%;
+  list-style: none;
   display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
-.left-container {
-  padding-top: 10rem !important;
-  width: 20%;
-  height: 35rem;
-  background-color: #191950;
-
-  /* border-right: 1px solid #fee60c; */
+.fixed-bar {
+  position: fixed;
+  border-bottom: 1px solid #fee60c;
 }
-.left-container p {
-  padding-top: 2rem !important;
-  padding-left: 3rem;
+nav li {
+  height: 50px;
 }
-.left-container p:hover {
-  /* background-color: #fee60c; */
-  /* color: #191942; */
+li a {
+  padding: 15px 20px;
   border-radius: 5px;
-  cursor: pointer !important;
-  /* text-align: center; */
+}
+nav a {
+  height: 100%;
+  /* padding: 0 30px; */
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 12px;
+}
+nav a:hover {
+  color: #191942;
+  background-color: #fee60c;
+}
+nav ul li:first-child {
+  margin-right: auto;
+}
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 50vh;
+  width: 250px;
+  z-index: 999;
+  background-color: #191950;
+  /* box-shadow: -10px 0 10px rgba(0, 0, 0, 1); */
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+svg {
+  background-color: #fff;
+}
+.sidebar li {
+  width: 100%;
+}
+.sidebar a {
+  width: 100%;
+}
+.menu-button {
+  display: none;
+}
+@media (max-width: 1200px) {
+  .hidenMobile {
+    display: none;
+  }
+  .menu-button {
+    display: block;
+  }
+}
+@media (max-width: 400px) {
+  .sidebar {
+    width: 100%;
+  }
 }
 
+/* ================================section======================= */
 .right-container {
-  padding-top: 10rem !important;
+  padding-top: 2rem !important;
 }
 .add-title {
   margin-left: 7rem;
@@ -122,10 +106,10 @@ input[type="button"] {
   background-color: #fee60c;
   cursor: pointer;
   outline: 0;
-  width: 20%;
+  /* width: 20%; */
   color: #191942;
   border-radius: 4px;
-  padding: 6px;
+  padding: 10px 10px;
   font-weight: bold;
 }
 
@@ -137,7 +121,7 @@ input[type="button"]:hover {
 input[type="text"] {
   border: 0;
   background-color: #191942;
-  border-bottom: 1px solid #fee60c;
+  border: 1px solid #fee60c;
   outline: 0;
   width: 100%;
   padding-top: 1rem;
@@ -146,10 +130,10 @@ input[type="text"] {
 textarea {
   border: 0;
   background-color: #191942;
-  border-bottom: 1px solid #fee60c;
+  border: 1px solid #fee60c;
   outline: 0;
   width: 100%;
-  height: 100px;
+  height: 44vh;
   padding-top: 1rem;
   color: #fff;
 }
@@ -171,4 +155,13 @@ input[type="file"]:focus {
   padding-top: 2rem;
   padding-left: 13rem;
   padding-right: 12rem;
+}
+
+/* ================================ */
+@media (max-width: 1200px) {
+  .right-container > div {
+    padding-top: 2rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
 }
