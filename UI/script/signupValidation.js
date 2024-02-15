@@ -40,7 +40,6 @@ document.getElementById("signup").addEventListener("click", function () {
     isValid = false;
   }
 
-  //save data
   var userData = {
     fullName: fullName,
     email: email,

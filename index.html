@@ -212,9 +212,11 @@
     </section>
     <section id="blogs">
       <div class="blogs-header">BLOGS</div>
-      <div class="all-blogs">
-        <div class="single-blogs">
-          <img src="UI/Images/blog1.png" alt="" />
+      <div class="all-blogs" id="blogsContainer">
+        <!-- <div class="single-blogs">
+          <div class="blog-image" id="blog-image">
+            <img src="UI/Images/blog1.png" alt="" />
+          </div>
           <div class="date-comments">
             <div class="posted-date">
               <i class="fas fa-clock"></i>
@@ -224,10 +226,10 @@
               <i class="far fa-comment"></i><span>3 Comments</span>
             </div>
           </div>
-          <div class="blog-title">
+          <div class="blog-title" id="blog-title">
             A Software Developer vs. Software Engineer: Whom to Choose?
           </div>
-          <div class="blog-description">
+          <div class="blog-description" id="blog-description">
             Dive into the most debated topic of the software development
             services industry: Software Engineer vs. Software Developer. Today,
             we will uncover the nuances of these roles as we dissect their skill
@@ -238,7 +240,9 @@
           </div>
         </div>
         <div class="single-blogs">
-          <div class="blog-image"><img src="UI/Images/blog1.png" alt="" /></div>
+          <div class="blog-image" id="blog-image">
+            <img src="UI/Images/blog1.png" alt="" />
+          </div>
           <div class="date-comments">
             <div class="posted-date">
               <i class="fas fa-clock"></i>
@@ -248,10 +252,10 @@
               <i class="far fa-comment"></i><span>3 Comments</span>
             </div>
           </div>
-          <div class="blog-title">
+          <div class="blog-title" id="blog-title">
             A Software Developer vs. Software Engineer: Whom to Choose?
           </div>
-          <div class="blog-description">
+          <div class="blog-description" id="blog-description">
             Dive into the most debated topic of the software development
             services industry: Software Engineer vs. Software Developer. Today,
             we will uncover the nuances of these roles as we dissect their skill
@@ -274,10 +278,10 @@
               <i class="far fa-comment"></i><span> 3 Comments</span>
             </div>
           </div>
-          <div class="blog-title">
+          <div class="blog-title" id="blog-title">
             A Software Developer vs. Software Engineer: Whom to Choose?
           </div>
-          <div class="blog-description">
+          <div class="blog-description" id="blog-description">
             Dive into the most debated topic of the software development
             services industry: Software Engineer vs. Software Developer. Today,
             we will uncover the nuances of these roles as we dissect their skill
@@ -286,7 +290,7 @@
           <div class="read-more-btn">
             <a href="/UI/Pages/allBlogs.html">Read More</a>
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="more-blogs"><button>READ MORE BLOGS</button></div>
     </section>
@@ -303,34 +307,24 @@
           <p class="contact-header">FILL THIS FORM</p>
           <form action="">
             <div class="form-group">
-              <input
-                type="text"
-                id="fullName"
-                name="name"
-                placeholder="Names"
-              />
+              <input type="text" id="fullName" placeholder="Names" />
               <small id="nameError"></small>
               <label for="name">Names</label>
             </div>
             <div class="form-group">
-              <input type="text" id="email" name="email" placeholder="Email" />
+              <input type="text" id="email" placeholder="Email" />
               <small id="emailError"></small>
               <label for="email">Email</label>
             </div>
             <div class="form-group">
-              <input
-                type="text"
-                id="message"
-                name="message"
-                placeholder="Message"
-              />
+              <input type="text" id="message" placeholder="Message" />
               <small id="messageError"></small>
               <label for="message">Message</label>
             </div>
 
             <div class="submit">
-              <button type="submit" class="message-btn" id="message-btn">
-                SEND MESSAGE
+              <!-- <button type="submit" class="message-btn" id="message-btn"> -->
+                <input type="button" class="message-btn" id="message-btn" value="SEND MESSAGE"/>
               </button>
             </div>
           </form>
@@ -377,12 +371,14 @@
             id="sub-input"
             placeholder="Enter your email"
           />
+          <small id="sub-errors"></small>
           <button class="subscribe-btn" id="sub-btn">Subscribe</button>
         </div>
       </div>
       <div class="footer">&copy; 2024 Eric NIYOKWIZERWA - Web Developer</div>
     </section>
-    <script src="/UI/script/contactValidatio.js"></script>
+    <script src="/UI/script/contactValidations.js"></script>
     <script src="/UI/script/subscribers.js"></script>
+    <script src="UI/script/FetchBlogs.js"></script>
   </body>
 </html>

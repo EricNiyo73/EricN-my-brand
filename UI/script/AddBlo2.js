@@ -32,10 +32,7 @@ blogImage.addEventListener("change", (e) => {
 function save() {
   let blogTitle = document.getElementById("blogTitle");
   let blogContent = document.getElementById("blogDescription");
-  //   if (!image) {
-  //     alert("Please select an image");
-  //     return;
-  //   }
+
   resetErrorMessages();
 
   var isValid = true;

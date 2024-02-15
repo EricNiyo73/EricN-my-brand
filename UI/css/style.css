@@ -692,9 +692,10 @@ input {
   outline: none;
   border-bottom: 1px solid #fee60c;
 }
-.submit button {
+input[type="button"] {
   margin-right: 25px;
   margin-bottom: 20px;
+  width: 30%;
   float: right;
   background-color: #fee60c;
   color: #191942;
