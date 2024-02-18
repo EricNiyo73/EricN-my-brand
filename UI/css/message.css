@@ -241,11 +241,18 @@ h1 {
     display: flex;
   }
 }
-@media screen and (max-width: 435px) {
+@media screen and (max-width: 550px) {
   .logo {
     color: #fee60c;
     padding-left: 40px;
     font-size: 18px;
+  }
+  .all-message {
+    margin-top: 5rem;
+  }
+  nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
   }
   ul li a {
     color: #fee60c;

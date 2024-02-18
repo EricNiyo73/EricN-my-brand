@@ -35,6 +35,7 @@ blogDataArray.forEach(function (blog) {
   commentIcon.classList.add("far", "fa-comment");
   var commentsSpan = document.createElement("span");
   commentsSpan.textContent = "3" + " Comments";
+
   commentIconDiv.appendChild(commentIcon);
   commentIconDiv.appendChild(commentsSpan);
   dateCommentsDiv.appendChild(commentIconDiv);
