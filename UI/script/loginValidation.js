@@ -37,7 +37,8 @@ document.getElementById("login").addEventListener("click", function () {
 
       if (user) {
         alert("Login successful!");
-        sessionStorage.setItem("loggedIn", "true");
+        // sessionStorage.setItem("isLoggedIn", "true");
+        localStorage.setItem("isLoggedIn", "true");
         window.location.href = user.isAdmin
           ? "Admin/message.html"
           : "/UI/index.html";
@@ -61,11 +62,9 @@ function isValidEmail(email) {
   return emailRegex.test(email);
 }
 
-function isLoggedIn() {
-  return sessionStorage.getItem("loggedIn") === "true";
-}
 function logout() {
-  sessionStorage.removeItem("loggedIn");
+  // sessionStorage.removeItem("isLoggedIn");
+  localStorage.removeItem("isLoggedIn");
   return (window.location.href = "/UI/index.html");
 }
 function resetErrorMessages() {
