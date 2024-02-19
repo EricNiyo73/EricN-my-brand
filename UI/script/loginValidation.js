@@ -4,6 +4,7 @@ document.getElementById("login").addEventListener("click", function () {
 
   document.getElementById("emailError").textContent = "";
   document.getElementById("secret").textContent = "";
+  document.getElementById("loginError").textContent = "";
 
   resetErrorMessages();
 
@@ -28,16 +29,29 @@ document.getElementById("login").addEventListener("click", function () {
   }
 
   if (isValid) {
-    var userData = JSON.parse(localStorage.getItem("userData"));
-    if (
-      userData &&
-      userData.email === email &&
-      userData.password === password
-    ) {
-      alert("Login successful!");
-      window.location.href = "Admin/message.html";
+    var registeredUsers = JSON.parse(localStorage.getItem("userData"));
+    if (registeredUsers) {
+      var user = registeredUsers.find(
+        (user) => user.email === email && user.password === password
+      );
+
+      if (user) {
+        alert("Login successful!");
+        sessionStorage.setItem("loggedIn", "true");
+        window.location.href = user.isAdmin
+          ? "Admin/message.html"
+          : "/UI/index.html";
+      } else {
+        displayErrorMessage(
+          "loginError",
+          "Invalid email or password. Please try again."
+        );
+      }
     } else {
-      alert("Invalid email or password. Please try again.");
+      displayErrorMessage(
+        "loginError",
+        "No registered users found. Please sign up first."
+      );
     }
   }
 });
@@ -46,9 +60,18 @@ function isValidEmail(email) {
   var emailRegex = /^([a-z0-9._%-]+@[a-z0-9.-]+\.[a-z]{2,})$/;
   return emailRegex.test(email);
 }
+
+function isLoggedIn() {
+  return sessionStorage.getItem("loggedIn") === "true";
+}
+function logout() {
+  sessionStorage.removeItem("loggedIn");
+  return (window.location.href = "/UI/index.html");
+}
 function resetErrorMessages() {
   document.getElementById("emailError").textContent = "";
   document.getElementById("secret").textContent = "";
+  document.getElementById("loginError").textContent = "";
 }
 
 function displayErrorMessage(id, message) {

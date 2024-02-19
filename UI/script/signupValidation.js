@@ -1,72 +1,104 @@
-document.getElementById("signup").addEventListener("click", function () {
-  var fullName = document.getElementById("fullName").value;
-  var email = document.getElementById("email").value;
-  var password = document.getElementById("password").value;
+document.getElementById("signup").addEventListener("click", function (e) {
+  e.preventDefault();
+  // document.getElementById("nam").textContent = "";
 
-  document.getElementById("nam").textContent = "";
-  document.getElementById("emailError").textContent = "";
-  document.getElementById("secret").textContent = "";
+  // document.getElementById("emailError").textContent = "";
+  // document.getElementById("secret").textContent = "";
 
-  resetErrorMessages();
+  save();
+});
+
+let details = [];
+
+getData();
+
+function getData() {
+  let data = localStorage.getItem("userData");
+  if (data) {
+    details = JSON.parse(data);
+  } else {
+    setData();
+  }
+}
+
+function setData() {
+  localStorage.setItem("userData", JSON.stringify(details));
+}
+function save() {
+  var email = document.getElementById("email");
+  var password = document.getElementById("password");
+  var fullName = document.getElementById("fullName");
 
   var isValid = true;
-  if (!fullName) {
+  let userData = {
+    fullName: fullName.value.trim(),
+    email: email.value.trim(),
+    password: password.value.trim(),
+    isAdmin: false,
+  };
+
+  if (!userData.fullName) {
     displayErrorMessage("nam", "Please enter your full name");
     isValid = false;
+  } else {
+    resetErrorMessage("nam");
   }
 
-  if (!email) {
+  if (!userData.email) {
     displayErrorMessage("emailError", "Please enter your email address");
     isValid = false;
-  } else if (!isValidEmail(email)) {
+  } else if (!isValidEmail(userData.email)) {
     displayErrorMessage("emailError", "Please enter a valid email address");
     isValid = false;
-  } else if (isEmailRegistered(email)) {
+  } else if (isEmailRegistered(userData.email)) {
     displayErrorMessage(
       "emailError",
       " Sorry ,Email address is already registered"
     );
     isValid = false;
+  } else {
+    resetErrorMessage("emailError");
   }
 
-  if (!password) {
+  if (!userData.password) {
     displayErrorMessage("secret", "Please enter a password");
     isValid = false;
-  } else if (password.length !== 8 || !/[!@]/.test(password)) {
+  } else if (
+    userData.password.length !== 8 ||
+    !/[!@]/.test(userData.password)
+  ) {
     displayErrorMessage(
       "secret",
       "Password must be 8 characters and contain either '@' or '!' sign"
     );
     isValid = false;
+  } else {
+    resetErrorMessage("secret");
   }
-
-  var userData = {
-    fullName: fullName,
-    email: email,
-    password: password,
-  };
-  localStorage.setItem("userData", JSON.stringify(userData));
   if (isValid) {
+    details.push(userData);
+    setData();
     alert("You have registered successfully!");
-    document.getElementById("fullName").value = "";
-    document.getElementById("email").value = "";
-    document.getElementById("password").value = "";
+    fullName.value = "";
+    email.value = "";
+    password.value = "";
   }
-});
-
+}
 function isEmailRegistered(email) {
-  var userData = JSON.parse(localStorage.getItem("userData"));
-  return userData && userData.email === email;
+  let registeredUsers = JSON.parse(localStorage.getItem("userData"));
+  if (registeredUsers) {
+    return registeredUsers.some((user) => user.email === email);
+  } else {
+    return false;
+  }
 }
 
 function isValidEmail(email) {
   var emailRegex = /^([a-z0-9._%-]+@[a-z0-9.-]+\.[a-z]{2,})$/;
   return emailRegex.test(email);
 }
-function resetErrorMessages() {
-  document.getElementById("nam").textContent = "";
-  document.getElementById("emailError").textContent = "";
-  document.getElementById("secret").textContent = "";
+function resetErrorMessage(id) {
+  document.getElementById(id).textContent = "";
 }
 
 function displayErrorMessage(id, message) {
