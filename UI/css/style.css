@@ -25,7 +25,7 @@ html {
 .navbar {
   display: flex;
   background-color: #191942;
-  gap: 29rem;
+  gap: 25rem;
   border-bottom: 2px solid #fee60c;
   position: fixed;
   width: 100%;
