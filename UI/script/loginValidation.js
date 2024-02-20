@@ -65,7 +65,7 @@ function isValidEmail(email) {
 function logout() {
   // sessionStorage.removeItem("isLoggedIn");
   localStorage.removeItem("isLoggedIn");
-  return (window.location.href = "/UI/index.html");
+  return (window.location.href = "https://ericnmybrand.netlify.app/");
 }
 function resetErrorMessages() {
   document.getElementById("emailError").textContent = "";
