@@ -41,7 +41,7 @@ document.getElementById("login").addEventListener("click", function () {
         localStorage.setItem("isLoggedIn", "true");
         window.location.href = user.isAdmin
           ? "Admin/message.html"
-          : "/UI/index.html";
+          : "https://ericnmybrand.netlify.app/";
       } else {
         displayErrorMessage(
           "loginError",
