@@ -34,7 +34,7 @@ function save() {
     fullName: fullName.value.trim(),
     email: email.value.trim(),
     password: password.value.trim(),
-    isAdmin: false,
+    isAdmin: true,
   };
 
   if (!userData.fullName) {
