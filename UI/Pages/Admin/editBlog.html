@@ -85,28 +85,31 @@
         <div class="form-group">
           <input
             type="text"
+            id="title"
             value="Top 10 Technology Blogs for Latest Tech"
             placeholder="BLOG TITLE"
           />
-          <p id="nam"></p>
+          <p id="titleError"></p>
         </div>
         <div class="form-group">
           <textarea
             name="description"
+            id="description"
             placeholder=" BLOG DESCRIPTION"
-            value="Top 10 Technology Blogs for Latest Tech"
           ></textarea>
-          <p id="desc"></p>
+          <p id="descError"></p>
         </div>
         <div class="form-group">
-          <input type="file" placeholder="Password" />
-          <p id="secret"></p>
+          <input type="file" placeholder="files" id="file" />
+          <p id="ImageError"></p>
         </div>
         <div class="form-group">
-          <input type="button" id="login" value="EDIT" />
+          <input type="button" id="edit" value="EDIT" />
         </div>
       </div>
     </section>
     <script src="../../script/index.js"></script>
+    <script src="../../script/deleteAndEditBlog.js"></script>
+    <script src="../../script/Authentication.js"></script>
   </body>
 </html>

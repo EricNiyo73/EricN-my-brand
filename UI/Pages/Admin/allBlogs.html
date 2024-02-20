@@ -27,7 +27,7 @@
       </div>
       <div class="rightnav">
         <ul>
-          <li><a class="" href="/UI/index.html">LOGOUT</a></li>
+          <li onclick="logout()">LOGOUT</li>
         </ul>
       </div>
     </div>
@@ -48,8 +48,8 @@
       </div>
       <div class="right-container">
         <div class="header"><p>ALL BLOGS HERE</p></div>
-        <div class="blog-lists">
-          <div class="single-list">
+        <div class="blog-lists" id="blogContainer">
+          <!-- <div class="single-list">
             <div class="image">
               <img src="/UI/Images/blog1 (2).png" alt="blog Image" />
             </div>
@@ -180,9 +180,12 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </section>
+    <script src="../../script/FetchBlogsOnDashB.js"></script>
+    <script src="../../script/loginValidation.js"></script>
+    <script src="../../script/Authentication.js"></script>
   </body>
 </html>

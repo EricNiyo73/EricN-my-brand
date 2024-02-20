@@ -78,6 +78,7 @@ ul li {
 .rightnav {
   width: 100%;
   padding-top: 30px;
+  padding-left: 10rem;
 }
 a {
   text-decoration: none !important;
@@ -112,6 +113,9 @@ h1 {
 .right-container {
   padding-top: 6rem;
   padding-left: 2rem;
+}
+.image img {
+  width: 100%;
 }
 .blog-lists {
   padding-right: 10px;

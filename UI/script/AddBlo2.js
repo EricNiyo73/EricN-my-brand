@@ -28,7 +28,11 @@ blogImage.addEventListener("change", (e) => {
     image = reader.result;
   });
 });
-
+let id = 1;
+if (details.length > 0) {
+  let ids = details.map((blog) => blog.id);
+  id = Math.max(...ids) + 1;
+}
 function save() {
   let blogTitle = document.getElementById("blogTitle");
   let blogContent = document.getElementById("blogDescription");
@@ -37,6 +41,7 @@ function save() {
 
   var isValid = true;
   let data = {
+    id: id,
     blogTitle: blogTitle.value.trim(),
     blogContent: blogContent.value.trim(),
     image: image,
