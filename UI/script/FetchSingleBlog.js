@@ -29,9 +29,21 @@ document.addEventListener("DOMContentLoaded", function () {
     blogDescription.classList.add("blog-description");
     blogDescription.innerHTML = blog.blogContent;
 
+    var likesContainer = document.createElement("div");
+    likesContainer.classList.add("likes-container");
+    var likeButton = document.createElement("button");
+    likeButton.classList.add("like-button");
+    likeButton.textContent = "Like";
+    likesContainer.appendChild(likeButton);
+    var likesCount = document.createElement("span");
+    likesCount.classList.add("likes-count");
+    likesCount.textContent = blog.likes;
+    likesContainer.appendChild(likesCount);
+
     leftContainer.appendChild(blogImage);
     leftContainer.appendChild(blogTitle);
     leftContainer.appendChild(blogDescription);
+    leftContainer.appendChild(likesContainer);
 
     if (!document.getElementById("commentForm")) {
       var commentForm = document.createElement("div");
@@ -41,11 +53,18 @@ document.addEventListener("DOMContentLoaded", function () {
       var ToEnterName = document.createElement("div");
       ToEnterName.classList.add("commentorName");
 
-      var commentorInput = document.createElement("input");
-      commentorInput.type = "text";
-      commentorInput.id = "fullName";
-
-      ToEnterName.appendChild(commentorInput);
+      var userFullName = localStorage.getItem("userLoggedIn");
+      if (userFullName) {
+        var commentorNameDisplay = document.createElement("div");
+        commentorNameDisplay.textContent = "Welcome: " + userFullName;
+        ToEnterName.appendChild(commentorNameDisplay);
+      } else {
+        var commentorInput = document.createElement("input");
+        commentorInput.type = "text";
+        commentorInput.id = "fullName";
+        commentorInput.placeholder = "Your Name";
+        ToEnterName.appendChild(commentorInput);
+      }
 
       var commentEmpty = document.createElement("div");
       var label = document.createElement("label");
@@ -82,6 +101,10 @@ document.addEventListener("DOMContentLoaded", function () {
       saveComment(blogId);
     });
 
+  document.querySelector(".like-button").addEventListener("click", function () {
+    likeBlog(blogId);
+  });
+
   function displayComments(blogId) {
     var comments = JSON.parse(localStorage.getItem("UserComment")) || [];
     var blogComments = comments.filter(function (comment) {
@@ -89,6 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     var commentsContainer = document.createElement("div");
     commentsContainer.classList.add("comments-container");
+
     blogComments.forEach(function (comment) {
       var commentDiv = document.createElement("div");
       commentDiv.classList.add("comment-commentor");
@@ -126,13 +150,25 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     var isValid = true;
+
     var newComment = {
-      fullName: fullName.value.trim(),
+      fullName: userFullName,
       blogId: parseInt(blogId),
       commentId: commentId,
       comment: comment.value.trim(),
     };
-
+    function checkAuthentication() {
+      var isLoggedIn = localStorage.getItem("isLoggedIn");
+      return isLoggedIn === "true";
+    }
+    function YouMustLoggIn() {
+      if (!checkAuthentication()) {
+        alert("You must be logged in");
+        window.location.href = "/UI/Pages/Login.html";
+        isValid = false;
+      }
+    }
+    YouMustLoggIn();
     if (!newComment.blogId) {
       alert("Blog id not found");
       isValid = false;
@@ -146,9 +182,24 @@ document.addEventListener("DOMContentLoaded", function () {
       comments.push(newComment);
       localStorage.setItem("UserComment", JSON.stringify(comments));
       alert("Thank You!");
-      fullName.value = "";
       comment.value = "";
       displayComments(blogId);
+
+      location.reload();
+    }
+  }
+  function likeBlog(blogId) {
+    var blogs = JSON.parse(localStorage.getItem("blogs")) || [];
+    var blogIndex = blogs.findIndex(function (blog) {
+      return blog.id === parseInt(blogId);
+    });
+    if (blogIndex !== -1) {
+      blogs[blogIndex].likes++;
+      localStorage.setItem("blogs", JSON.stringify(blogs));
+      document.querySelector(".likes-count").textContent =
+        blogs[blogIndex].likes;
+    } else {
+      console.error("Blog not found!");
     }
   }
 });

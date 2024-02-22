@@ -8,6 +8,8 @@ function ToChangeLoginStatus() {
     loginLink.innerHTML = '<a href="#" id="logout">LOGOUT</a>';
     document.getElementById("logout").addEventListener("click", function () {
       localStorage.removeItem("isLoggedIn");
+      localStorage.removeItem("userRole");
+      localStorage.removeItem("userLoggedIn");
       ToChangeLoginStatus();
     });
   } else {

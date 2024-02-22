@@ -39,6 +39,7 @@ document.getElementById("userlogin").addEventListener("click", function (e) {
       if (user) {
         alert("Login successful!");
         localStorage.setItem("isLoggedIn", "true");
+        localStorage.setItem("userLoggedIn", user?.fullName);
         if (email === "ericnemachine@gmail.com" && password === "ericeri@") {
           localStorage.setItem("userRole", "admin");
           window.location.href = "Admin/message.html";
@@ -69,6 +70,7 @@ function isValidEmail(email) {
 function logout() {
   localStorage.removeItem("isLoggedIn");
   localStorage.removeItem("userRole");
+  localStorage.removeItem("userLoggedIn");
 
   // return (window.location.href = "https://ericnmybrand.netlify.app/");
   return (window.location.href = "/UI/index.html");
