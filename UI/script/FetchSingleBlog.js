@@ -157,18 +157,18 @@ document.addEventListener("DOMContentLoaded", function () {
       commentId: commentId,
       comment: comment.value.trim(),
     };
-    function checkAuthentication() {
-      var isLoggedIn = localStorage.getItem("isLoggedIn");
-      return isLoggedIn === "true";
-    }
-    function YouMustLoggIn() {
-      if (!checkAuthentication()) {
-        alert("You must be logged in");
-        window.location.href = "/UI/Pages/Login.html";
-        isValid = false;
-      }
-    }
-    YouMustLoggIn();
+    // function checkAuthentication() {
+    //   var isLoggedIn = localStorage.getItem("isLoggedIn");
+    //   return isLoggedIn === "true";
+    // }
+    // function YouMustLoggIn() {
+    //   if (!checkAuthentication()) {
+    //     alert("You must be logged in");
+    //     window.location.href = "/UI/Pages/Login.html";
+    //     isValid = false;
+    //   }
+    // }
+    // YouMustLoggIn();
     if (!newComment.blogId) {
       alert("Blog id not found");
       isValid = false;

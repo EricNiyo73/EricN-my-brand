@@ -27,7 +27,7 @@ blogsData.forEach(function (blog) {
 
   var timeSpan = document.createElement("span");
   timeSpan.classList.add("time");
-  timeSpan.textContent = "20 February 2024";
+  timeSpan.textContent = "22 February 2024";
   dateDiv.appendChild(dateIcon);
   dateDiv.appendChild(timeSpan);
 

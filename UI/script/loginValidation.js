@@ -45,7 +45,8 @@ document.getElementById("userlogin").addEventListener("click", function (e) {
           window.location.href = "Admin/message.html";
         } else {
           localStorage.setItem("userRole", "user");
-          window.location.href = "/UI/index.html";
+          // window.location.href = "/UI/index.html";
+          window.location.href = "https://ericnmybrand.netlify";
         }
       } else {
         displayErrorMessage(
@@ -72,8 +73,8 @@ function logout() {
   localStorage.removeItem("userRole");
   localStorage.removeItem("userLoggedIn");
 
-  // return (window.location.href = "https://ericnmybrand.netlify.app/");
-  return (window.location.href = "/UI/index.html");
+  return (window.location.href = "https://ericnmybrand.netlify.app/");
+  // return (window.location.href = "/UI/index.html");
 }
 function resetErrorMessages() {
   document.getElementById("emailError").textContent = "";
