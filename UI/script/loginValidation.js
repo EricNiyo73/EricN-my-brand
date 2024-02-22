@@ -46,7 +46,7 @@ document.getElementById("userlogin").addEventListener("click", function (e) {
         } else {
           localStorage.setItem("userRole", "user");
           // window.location.href = "/UI/index.html";
-          window.location.href = "https://ericnmybrand.netlify";
+          window.location.href = "https://ericnmybrand.netlify.app";
         }
       } else {
         displayErrorMessage(
