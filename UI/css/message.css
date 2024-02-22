@@ -81,6 +81,7 @@ nav a:hover {
 .rightnav {
   width: 100%;
   padding-top: 30px;
+  padding-left: 28rem;
 }
 a {
   text-decoration: none !important;
@@ -179,6 +180,11 @@ h1 {
     gap: 4rem;
     width: 100%;
   }
+  .rightnav {
+    width: 100%;
+    padding-top: 30px;
+    padding-left: 20rem;
+  }
   #dashboard {
     display: grid;
     gap: 10px;
@@ -242,6 +248,11 @@ h1 {
   }
 }
 @media screen and (max-width: 550px) {
+  .rightnav {
+    width: 100%;
+    padding-top: 30px;
+    padding-left: 4rem;
+  }
   .logo {
     color: #fee60c;
     padding-left: 40px;

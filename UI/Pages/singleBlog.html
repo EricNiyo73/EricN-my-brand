@@ -33,13 +33,16 @@
           <a href="/UI/index.html">PORTFOLIO</a>
           <a href="/UI/index.html">BLOGS</a>
           <a href="/UI/index.html">CONTACT</a>
-          <a href="/UI/Pages/Login.html">LOGIN</a>
+          <a id="loginLink" href="./Pages/Login.html">LOGIN</a>
         </nav>
       </div>
     </div>
     <section id="singleBlog">
       <div class="left-single-container">
-        <img src="../Images/Screenshot 2024-02-07 173403.png" alt="Image" />
+        <!-- <div class="blog-image">
+          <img src="../Images/Screenshot 2024-02-07 173403.png" alt="Image" />
+        </div>
+
         <div class="blog-title"><h2>React Native Elements</h2></div>
         <div class="blog-description">
           <span
@@ -81,25 +84,35 @@
             <br />
             It allows you to use React Native
           </span>
-          <div class="comment-form">
-            <form id="comment-form">
-              <div>
-                <label for="comment">Comment:</label>
-                <textarea
-                  id="comment"
-                  name="comment"
-                  rows="4"
-                  required
-                ></textarea>
-              </div>
-              <button type="submit">Comment</button>
-            </form>
-          </div>
         </div>
+
+        <div class="comment-form">
+          <form id="comment-form">
+            <div>
+              <label for="comment">Comment:</label>
+              <textarea
+                id="comment"
+                name="comment"
+                rows="4"
+                required
+              ></textarea>
+            </div>
+            
+            <button type="submit">Comment</button>
+          </form>
+        </div>
+        <div class="comment-commentor">
+          <div class="commentor">
+            <span><i class="fas fa-user-circle"></i></span><span>Joshua</span>
+          </div>
+          <div class="comment"><small>Nice blogs</small></div>
+        </div> -->
       </div>
-      <div class="right-all-container">
-        <div class="right-single-container">
-          <img src="../Images/blog1.png" alt="Image" />
+      <!-- <div class="right-all-container"> -->
+      <!-- <div class="right-single-container">
+          <div class="blog-image">
+            <img src="../Images/blog1.png" alt="Image" />
+          </div>
           <div class="title-desc">
             <div class="blog-title"><h2>React Native Elements</h2></div>
 
@@ -114,7 +127,9 @@
           </div>
         </div>
         <div class="right-single-container">
-          <img src="../Images/blog1.png" alt="Image" />
+          <div class="blog-image">
+            <img src="../Images/blog1.png" alt="Image" />
+          </div>
           <div class="title-desc">
             <div class="blog-title"><h2>React Native Elements</h2></div>
 
@@ -129,7 +144,9 @@
           </div>
         </div>
         <div class="right-single-container">
-          <img src="../Images/blog1.png" alt="Image" />
+          <div class="blog-image">
+            <img src="../Images/blog1.png" alt="Image" />
+          </div>
           <div class="title-desc">
             <div class="blog-title"><h2>React Native Elements</h2></div>
 
@@ -142,8 +159,8 @@
               </span>
             </div>
           </div>
-        </div>
-      </div>
+        </div> -->
+      <!-- </div> -->
     </section>
     <section id="footer">
       <div class="location-socilMedias">
@@ -192,5 +209,8 @@
 
       <div class="footer">&copy; 2024 Eric NIYOKWIZERWA - Web Developer</div>
     </section>
+    <script src="../script/FetchSingleBlog.js"></script>
+    <script src="../script/loginToLogout.js"></script>
+    <!-- <script src="../script/AddComment.js"></script> -->
   </body>
 </html>

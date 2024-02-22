@@ -1,4 +1,5 @@
-document.getElementById("login").addEventListener("click", function () {
+document.getElementById("userlogin").addEventListener("click", function (e) {
+  e.preventDefault();
   var email = document.getElementById("email").value;
   var password = document.getElementById("password").value;
 
@@ -37,11 +38,14 @@ document.getElementById("login").addEventListener("click", function () {
 
       if (user) {
         alert("Login successful!");
-        // sessionStorage.setItem("isLoggedIn", "true");
         localStorage.setItem("isLoggedIn", "true");
-        window.location.href = user.isAdmin
-          ? "Admin/message.html"
-          : "https://ericnmybrand.netlify.app/";
+        if (email === "ericnemachine@gmail.com" && password === "ericeri@") {
+          localStorage.setItem("userRole", "admin");
+          window.location.href = "Admin/message.html";
+        } else {
+          localStorage.setItem("userRole", "user");
+          window.location.href = "/UI/index.html";
+        }
       } else {
         displayErrorMessage(
           "loginError",
@@ -63,9 +67,11 @@ function isValidEmail(email) {
 }
 
 function logout() {
-  // sessionStorage.removeItem("isLoggedIn");
   localStorage.removeItem("isLoggedIn");
-  return (window.location.href = "https://ericnmybrand.netlify.app/");
+  localStorage.removeItem("userRole");
+
+  // return (window.location.href = "https://ericnmybrand.netlify.app/");
+  return (window.location.href = "/UI/index.html");
 }
 function resetErrorMessages() {
   document.getElementById("emailError").textContent = "";

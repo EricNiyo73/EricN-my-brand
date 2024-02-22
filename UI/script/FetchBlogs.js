@@ -1,5 +1,5 @@
 var blogDataArray = JSON.parse(localStorage.getItem("blogs")) || [];
-console.log(blogDataArray);
+// console.log(blogDataArray);
 var container = document.getElementById("blogsContainer");
 
 blogDataArray.forEach(function (blog) {
@@ -24,7 +24,7 @@ blogDataArray.forEach(function (blog) {
   clockIcon.classList.add("fas", "fa-clock");
 
   var timeSpan = document.createElement("span");
-  timeSpan.textContent = " " + blog.postedDate;
+  timeSpan.textContent = " 21 02 2024";
   postedDateDiv.appendChild(clockIcon);
   postedDateDiv.appendChild(timeSpan);
   dateCommentsDiv.appendChild(postedDateDiv);
@@ -57,11 +57,12 @@ blogDataArray.forEach(function (blog) {
     slicedDescription += "...";
     blogDescriptionDiv.textContent = slicedDescription;
   }
-  console.log(slicedDescription);
+  // console.log(slicedDescription);
   var readMoreBtnDiv = document.createElement("div");
   readMoreBtnDiv.classList.add("read-more-btn");
   var readMoreLink = document.createElement("a");
-  readMoreLink.href = "./UI/Pages/singleBlog.html";
+  // readMoreLink.href = "./UI/Pages/singleBlog.html";
+  readMoreLink.href = `./Pages/singleBlog.html?id=${blog?.id}`;
   readMoreLink.textContent = "Read More";
   readMoreBtnDiv.appendChild(readMoreLink);
   blogDiv.appendChild(readMoreBtnDiv);

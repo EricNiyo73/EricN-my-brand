@@ -2,18 +2,13 @@ function checkAuthentication() {
   var isLoggedIn = localStorage.getItem("isLoggedIn");
   return isLoggedIn === "true";
 }
-
-function checkAdmin() {
-  var isAdmin = localStorage.getItem("userRole");
-  return isAdmin === "admin";
-}
-
 function redirectToLoginPage() {
-  window.location.href = "../Login.html";
+  window.location.href = "/UI/index.html";
+  //   window.location.href = "https://ericnmybrand.netlify.app/";
 }
 
 function checkAccessToAdminPage() {
-  if (!checkAuthentication() || !checkAdmin()) {
+  if (checkAuthentication()) {
     redirectToLoginPage();
   }
 }

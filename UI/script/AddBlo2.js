@@ -28,35 +28,44 @@ blogImage.addEventListener("change", (e) => {
     image = reader.result;
   });
 });
-let id = 1;
-if (details.length > 0) {
-  let ids = details.map((blog) => blog.id);
-  id = Math.max(...ids) + 1;
-}
+
 function save() {
   let blogTitle = document.getElementById("blogTitle");
   let blogContent = document.getElementById("blogDescription");
-
-  resetErrorMessages();
-
+  let comments = [];
+  // resetErrorMessages();
+  let id = 1;
+  if (details.length > 0) {
+    let ids = details.map((blog) => blog.id);
+    id = Math.max(...ids) + 1;
+  }
   var isValid = true;
   let data = {
     id: id,
     blogTitle: blogTitle.value.trim(),
     blogContent: blogContent.value.trim(),
     image: image,
+    comments: comments,
   };
   if (!data.blogTitle) {
     displayErrorMessage("titleError", "Please enter a blog title");
     isValid = false;
+  } else {
+    resetErrorMessage("titleError");
   }
+
   if (!data.blogContent) {
     displayErrorMessage("descriptionError", "Please enter a blog description");
     isValid = false;
+  } else {
+    resetErrorMessage("descriptionError");
   }
+
   if (!data.blogTitle) {
     displayErrorMessage("imageError", "Please select an image");
     isValid = false;
+  } else {
+    resetErrorMessage("imageError");
   }
   if (isValid) {
     details.push(data);
@@ -67,10 +76,8 @@ function save() {
   }
 }
 
-function resetErrorMessages() {
-  document.getElementById("titleError").textContent = "";
-  document.getElementById("descriptionError").textContent = "";
-  document.getElementById("imageError").textContent = "";
+function resetErrorMessage(id) {
+  document.getElementById(id).textContent = "";
 }
 
 function displayErrorMessage(id, message) {

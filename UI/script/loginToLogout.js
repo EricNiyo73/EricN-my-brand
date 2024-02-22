@@ -12,7 +12,6 @@ function ToChangeLoginStatus() {
     });
   } else {
     loginLink.innerHTML = '<a href="./Pages/Login.html">LOGIN</a>';
-    loginLink.style.color = "red";
   }
 }
 
