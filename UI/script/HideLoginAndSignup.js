@@ -3,8 +3,8 @@ function checkAuthentication() {
   return isLoggedIn === "true";
 }
 function redirectToLoginPage() {
-  window.location.href = "/UI/index.html";
-  //   window.location.href = "https://ericnmybrand.netlify.app/";
+  // window.location.href = "/UI/index.html";
+  window.location.href = "https://ericnmybrand.netlify.app/";
 }
 
 function checkAccessToAdminPage() {
