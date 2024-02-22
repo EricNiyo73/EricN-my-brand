@@ -33,8 +33,14 @@ blogDataArray.forEach(function (blog) {
   commentIconDiv.classList.add("comment-icon");
   var commentIcon = document.createElement("i");
   commentIcon.classList.add("far", "fa-comment");
+
+  var comments = JSON.parse(localStorage.getItem("UserComment")) || [];
+  var blogComments = comments.filter(function (comment) {
+    return comment.blogId === blog.id;
+  });
+  var numComments = blogComments.length;
   var commentsSpan = document.createElement("span");
-  commentsSpan.textContent = "3" + " Comments";
+  commentsSpan.textContent = numComments + " Comments";
 
   commentIconDiv.appendChild(commentIcon);
   commentIconDiv.appendChild(commentsSpan);
