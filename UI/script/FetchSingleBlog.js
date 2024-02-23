@@ -157,18 +157,17 @@ document.addEventListener("DOMContentLoaded", function () {
       commentId: commentId,
       comment: comment.value.trim(),
     };
-    // function checkAuthentication() {
-    //   var isLoggedIn = localStorage.getItem("isLoggedIn");
-    //   return isLoggedIn === "true";
-    // }
-    // function YouMustLoggIn() {
-    //   if (!checkAuthentication()) {
-    //     alert("You must be logged in");
-    //     window.location.href = "/UI/Pages/Login.html";
-    //     isValid = false;
-    //   }
-    // }
-    // YouMustLoggIn();
+    function checkAuthentication() {
+      var isLoggedIn = localStorage.getItem("isLoggedIn");
+      return isLoggedIn === "true";
+    }
+    function YouMustLoggIn() {
+      if (!checkAuthentication()) {
+        alert("You must be logged in");
+        isValid = false;
+      }
+    }
+    YouMustLoggIn();
     if (!newComment.blogId) {
       alert("Blog id not found");
       isValid = false;
@@ -194,10 +193,29 @@ document.addEventListener("DOMContentLoaded", function () {
       return blog.id === parseInt(blogId);
     });
     if (blogIndex !== -1) {
-      blogs[blogIndex].likes++;
-      localStorage.setItem("blogs", JSON.stringify(blogs));
-      document.querySelector(".likes-count").textContent =
-        blogs[blogIndex].likes;
+      var likedBlogs = JSON.parse(localStorage.getItem("likedBlogs")) || [];
+      var userFullName = localStorage.getItem("userLoggedIn");
+      var userLikedBlog = likedBlogs.find(function (likedBlog) {
+        return (
+          likedBlog.blogId === parseInt(blogId) &&
+          likedBlog.userFullName === userFullName
+        );
+      });
+      if (!userLikedBlog) {
+        blogs[blogIndex].likes++;
+        localStorage.setItem("blogs", JSON.stringify(blogs));
+        document.querySelector(".likes-count").textContent =
+          blogs[blogIndex].likes;
+
+        // Update the list of liked blogs for the current user
+        likedBlogs.push({
+          blogId: parseInt(blogId),
+          userFullName: userFullName,
+        });
+        localStorage.setItem("likedBlogs", JSON.stringify(likedBlogs));
+      } else {
+        console.log("You have already liked this blog.");
+      }
     } else {
       console.error("Blog not found!");
     }

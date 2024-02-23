@@ -111,6 +111,7 @@ svg {
 /* ============================= */
 section {
   background-color: #191942;
+  height: 120vh;
 }
 #dashboard {
   padding-top: 6rem;

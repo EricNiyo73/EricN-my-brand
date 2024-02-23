@@ -21,7 +21,7 @@ document.getElementById("userlogin").addEventListener("click", function (e) {
   if (!password) {
     displayErrorMessage("secret", "Please enter a password");
     isValid = false;
-  } else if (password.length !== 8 || !/[!@]/.test(password)) {
+  } else if (password.length >= 8 || !/[!@]/.test(password)) {
     displayErrorMessage(
       "secret",
       "Password must be 8 characters and contain either '@' or '!' sign"

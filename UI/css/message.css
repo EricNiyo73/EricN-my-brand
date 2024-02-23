@@ -89,6 +89,7 @@ a {
 section {
   background-color: #191942;
   display: flex;
+  height: 120vh;
 }
 .left-container {
   padding-top: 10rem !important;

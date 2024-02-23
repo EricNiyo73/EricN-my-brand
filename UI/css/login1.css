@@ -55,6 +55,7 @@ a {
 }
 section {
   padding-top: 7rem;
+  height: 120vh;
 }
 .login {
   background-color: #191942;

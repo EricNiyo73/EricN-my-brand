@@ -61,7 +61,7 @@ function save() {
     resetErrorMessage("descriptionError");
   }
 
-  if (!data.blogTitle) {
+  if (!data.image) {
     displayErrorMessage("imageError", "Please select an image");
     isValid = false;
   } else {
