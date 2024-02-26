@@ -33,12 +33,10 @@ function save() {
   if (!data.email) {
     displayErrorMessage("emailError", "Please enter your email address");
     isValid = false;
+  } else if (!isValidEmail(email)) {
+    displayErrorMessage("emailError", "Please enter a valid email address");
+    isValid = false;
   }
-
-  // else if (!isValidEmail(email)) {
-  //   displayErrorMessage("emailError", "Please enter a valid email address");
-  //   isValid = false;
-  // }
 
   if (!data.message) {
     displayErrorMessage("messageError", "Please enter a message");

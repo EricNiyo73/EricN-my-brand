@@ -55,7 +55,7 @@ a {
 }
 section {
   padding-top: 7rem;
-  height: 120vh;
+  /* height: 100vh; */
 }
 .login {
   background-color: #191942;
@@ -197,6 +197,9 @@ span {
     float: inherit;
     width: 100%;
   }
+  section {
+    height: 100vh;
+  }
   .location-socilMedias {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -262,6 +265,11 @@ span {
     margin-top: 10px;
     margin-right: 20px;
     gap: 2rem;
+  }
+  .footer {
+    text-align: center;
+    font-size: 13px;
+    color: #fff;
   }
   .login-title {
     text-align: center;

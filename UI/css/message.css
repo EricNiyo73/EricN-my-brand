@@ -153,6 +153,7 @@ h1 {
 }
 .reply-container {
   margin-top: 10px;
+  /* flex-direction: ; */
 }
 
 .reply-input {
@@ -164,6 +165,7 @@ h1 {
 }
 
 .reply-btn {
+  margin-left: 8px;
   width: 70px;
   background-color: #fee60c;
   color: #191942;

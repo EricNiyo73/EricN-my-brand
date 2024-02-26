@@ -59,14 +59,17 @@ document.addEventListener("DOMContentLoaded", function () {
         commentorNameDisplay.textContent = "Welcome: " + userFullName;
         ToEnterName.appendChild(commentorNameDisplay);
       } else {
-        var commentorInput = document.createElement("input");
-        commentorInput.type = "text";
-        commentorInput.id = "fullName";
-        commentorInput.placeholder = "Your Name";
+        var commentorInput = document.createElement("a");
+        commentorInput.classList.add("loginFirst");
+        commentorInput.textContent = "Login To Comment";
+        commentorInput.href = `./Login.html`;
+
+        // commentorInput.placeholder = "Your Name";
         ToEnterName.appendChild(commentorInput);
       }
 
       var commentEmpty = document.createElement("div");
+      commentEmpty.classList.add("fieldtocomment");
       var label = document.createElement("label");
       label.textContent = "Comment:";
 
@@ -206,8 +209,6 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem("blogs", JSON.stringify(blogs));
         document.querySelector(".likes-count").textContent =
           blogs[blogIndex].likes;
-
-        // Update the list of liked blogs for the current user
         likedBlogs.push({
           blogId: parseInt(blogId),
           userFullName: userFullName,
