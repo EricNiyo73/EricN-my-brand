@@ -90,7 +90,7 @@ section {
   margin-right: 16rem;
   border-bottom: 3px solid #fee60c;
 }
-input[type="button"] {
+button {
   border: 0;
   background-color: #fee60c;
   cursor: pointer;

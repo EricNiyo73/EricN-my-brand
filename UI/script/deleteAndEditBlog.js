@@ -8,8 +8,11 @@ document.addEventListener("DOMContentLoaded", function () {
     console.error(" hhhhh your Blog ID not found hhh");
   }
   var blogs = JSON.parse(localStorage.getItem("blogs")) || [];
+  var blog = blogs.find(function (blog) {
+    return blog.id === parseInt(blogId);
+  });
   console.log(blogs);
-  blogs.find(function (blog) {
+  if (blog) {
     console.log("Id blog is", blog.id);
 
     blog.id === blogId;
@@ -32,8 +35,8 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       localStorage.setItem("blogs", JSON.stringify(blogs));
-      location.reload();
-      // window.location.href = "/UI/Pages/Admin/allBlogs.html";
+      // location.reload();
+      window.location.href = "/UI/Pages/Admin/allBlogs.html";
     });
-  });
+  }
 });

@@ -1,4 +1,4 @@
-document.getElementById("userlogin").addEventListener("click", function (e) {
+document.getElementById("logingin").addEventListener("submit", function (e) {
   e.preventDefault();
   var email = document.getElementById("email").value;
   var password = document.getElementById("password").value;
@@ -6,9 +6,6 @@ document.getElementById("userlogin").addEventListener("click", function (e) {
   document.getElementById("emailError").textContent = "";
   document.getElementById("secret").textContent = "";
   document.getElementById("loginError").textContent = "";
-
-  resetErrorMessages();
-
   var isValid = true;
 
   if (!email) {
@@ -17,7 +14,10 @@ document.getElementById("userlogin").addEventListener("click", function (e) {
   } else if (!isValidEmail(email)) {
     displayErrorMessage("emailError", "Please enter a valid email address");
     isValid = false;
+  } else {
+    resetErrorMessage("emailError");
   }
+
   if (!password) {
     displayErrorMessage("secret", "Please enter a password");
     isValid = false;
@@ -27,6 +27,8 @@ document.getElementById("userlogin").addEventListener("click", function (e) {
       "Password must be 8 characters and contain either '@' or '!' sign"
     );
     isValid = false;
+  } else {
+    resetErrorMessage("secret");
   }
 
   if (isValid) {
@@ -76,10 +78,8 @@ function logout() {
   return (window.location.href = "https://ericnmybrand.netlify.app/");
   // return (window.location.href = "/UI/index.html");
 }
-function resetErrorMessages() {
-  document.getElementById("emailError").textContent = "";
-  document.getElementById("secret").textContent = "";
-  document.getElementById("loginError").textContent = "";
+function resetErrorMessage(id) {
+  document.getElementById(id).textContent = "";
 }
 
 function displayErrorMessage(id, message) {

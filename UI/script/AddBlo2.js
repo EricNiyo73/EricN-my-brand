@@ -72,6 +72,7 @@ function save() {
     setData();
     blogTitle.value = "";
     blogContent.value = "";
+    window.location.href = "/UI/Pages/Admin/allBlogs.html";
     image = "";
   }
 }

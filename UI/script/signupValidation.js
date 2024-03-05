@@ -1,10 +1,5 @@
-document.getElementById("signup").addEventListener("click", function (e) {
+document.getElementById("registering").addEventListener("submit", function (e) {
   e.preventDefault();
-  // document.getElementById("nam").textContent = "";
-
-  // document.getElementById("emailError").textContent = "";
-  // document.getElementById("secret").textContent = "";
-
   save();
 });
 

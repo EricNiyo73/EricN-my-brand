@@ -18,7 +18,6 @@ function save() {
   var fullName = document.getElementById("fullName");
   var email = document.getElementById("email");
   var message = document.getElementById("message");
-  resetErrorMessages();
   let data = {
     fullName: fullName.value.trim(),
     email: email.value.trim(),
@@ -28,19 +27,25 @@ function save() {
   if (!data.fullName) {
     displayErrorMessage("nameError", "Please enter your full name");
     isValid = false;
+  } else {
+    resetErrorMessage("nameError");
   }
 
   if (!data.email) {
     displayErrorMessage("emailError", "Please enter your email address");
     isValid = false;
-  } else if (!isValidEmail(email)) {
+  } else if (!isValidEmail(data.email)) {
     displayErrorMessage("emailError", "Please enter a valid email address");
     isValid = false;
+  } else {
+    resetErrorMessage("emailError");
   }
 
   if (!data.message) {
     displayErrorMessage("messageError", "Please enter a message");
     isValid = false;
+  } else {
+    resetErrorMessage("messageError");
   }
   if (isValid) {
     details.push(data);
@@ -57,10 +62,8 @@ function isValidEmail(email) {
   var emailRegex = /^([a-z0-9._%-]+@[a-z0-9.-]+\.[a-z]{2,})$/;
   return emailRegex.test(email);
 }
-function resetErrorMessages() {
-  document.getElementById("nameError").textContent = "";
-  document.getElementById("emailError").textContent = "";
-  document.getElementById("messageError").textContent = "";
+function resetErrorMessage(id) {
+  document.getElementById(id).textContent = "";
 }
 
 function displayErrorMessage(id, message) {
