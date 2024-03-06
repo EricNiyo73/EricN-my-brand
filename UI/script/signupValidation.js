@@ -31,7 +31,7 @@ function save() {
     password: password.value.trim(),
     isAdmin: false,
   };
-
+  fetch("https://my-brand-backend-ts.onrender.com/api/blogs");
   if (!userData.fullName) {
     displayErrorMessage("nam", "Please enter your full name");
     isValid = false;
