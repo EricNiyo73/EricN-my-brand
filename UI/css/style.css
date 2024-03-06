@@ -566,17 +566,13 @@ nav a:hover {
   padding-bottom: 10px;
 }
 .single-blogs {
-  padding-right: 10px;
-  /* background-color: #988c0e; */
+  justify-content: space-between;
+  align-items: center;
   box-shadow: 0px 0px 2px #7e7e83;
-  padding: 10px;
-  padding-bottom: 170px;
+  padding: 14px;
   border-radius: 5px;
-  transition: transform 0.3s ease;
 }
-.single-blogs:hover {
-  transform: translateY(-5px);
-}
+
 .posted-date i,
 span {
   color: #fee60c;
@@ -596,13 +592,14 @@ span {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+  padding-right: 15px;
 }
 .date-comments {
   display: flex;
   gap: 14px;
 }
 .read-more-btn {
-  width: 30%;
+  width: 50%;
   margin-top: 14px;
   background-color: #fee60c;
   color: #191942;
@@ -619,23 +616,20 @@ span {
   background-color: #fee60c;
 }
 .all-blogs > div {
-  flex-basis: 30%;
   margin-left: 6%;
-  padding-right: 0rem;
-  align-self: auto;
-  height: 70%;
-  /* box-shadow: 0px 0px 40px #191942; */
+  padding-right: 1rem;
 }
 .all-blogs > div:hover {
   /* box-shadow: 0px 0px 50px rgb(209, 206, 206); */
   transition: 1s;
 }
 .more-blogs {
+  padding-top: 2rem;
   justify-content: center;
   text-align: center;
   padding-left: 50px;
 }
-.more-blogs button {
+.more-blogs a {
   padding: 10px;
   background-color: #fee60c;
   color: #191942;

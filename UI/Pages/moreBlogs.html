@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All BLOGS</title>
+    <link rel="stylesheet" href="../css/moreb.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <!-- <script
+      src="https://kit.fontawesome.com/yourcode.js"
+      crossorigin="anonymous"
+    ></script> -->
+  </head>
+  <body>
+    <nav>
+      <ul class="sidebar">
+        <li onclick="HideSidebar()" class="close-button">
+          <a href="#"
+            ><i class="fa fa-close" style="font-size: 48px; color: white"></i
+          ></a>
+        </li>
+        <li><a href="/UI/index.html">HOME</a></li>
+        <li>
+          <a href="../index.html">ABOUT ME</a>
+        </li>
+        <li>
+          <a href="../index.html">PORTFOLIO</a>
+        </li>
+        <li>
+          <a href="../index.html">BLOGS</a>
+        </li>
+        <li><a href="../index.html">CONTACT</a></li>
+        <li onclick="logout()">
+          <a href="./Login.html">LOGIN</a>
+        </li>
+        <li></li>
+      </ul>
+
+      <ul class="fixed-bar">
+        <li>
+          <a href="#"><img src="../Images/logo.png" alt="" /></a>
+        </li>
+        <li class="hidenMobile"><a href="../index.html">HOME</a></li>
+        <li class="hidenMobile">
+          <a href="../index.html">ABOUT</a>
+        </li>
+        <li class="hidenMobile">
+          <a href="../index.html">SERVICES</a>
+        </li>
+        <li class="hidenMobile">
+          <a href="../index.html">PORTFOLIO</a>
+        </li>
+        <li class="hidenMobile"><a href="../index.html">BLOGS</a></li>
+        <li class="hidenMobile">
+          <a href="../index.html">CONTACT US</a>
+        </li>
+        <li onclick="logout()" class="hidenMobile">
+          <a href="./Login.html">LOGIN</a>
+        </li>
+        <li class="menu-button" onclick="showSidebar()">
+          <a href="#">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24"
+              viewBox="0 -960 960 960"
+              width="24"
+            >
+              <path
+                d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"
+              />
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <section id="blogs">
+      <div class="blogs-header">ALL BLOGS HERE</div>
+      <div class="all-blogs" id="blogsContainer"></div>
+    </section>
+       <footer>
+      <div class="">
+         <div class="location-socilMedias">
+        <div class="locations">
+          <div class="contact-logo">
+            <span>Eric</span>
+          </div>
+          <div class="call">
+            <i class="fas fa-phone-alt"></i><span>+250786007088</span>
+          </div>
+          <div class="map">
+            <i class="fas fa-map-marker-alt"></i> <span>Kigali City</span>
+          </div>
+        </div>
+        
+           <div class="contact-social-media">
+          <div class="">
+            <a href="https://github.com/" target="_blank"
+            ><i class="fab fa-github"></i
+          ></a>
+          </div>
+        <div class="">
+            <a href="mailto:ericnemachine@gmail.com" target="_blank"
+            ><i class="fas fa-envelope"></i
+          ></a>
+        </div>
+         <div class="">
+           <a href="https://www.linkedin.com/in/" target="_blank"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+         </div>
+          <div class="">
+            <a href="https://twitter.com/" target="_blank"
+            ><i class="fab fa-twitter"></i
+          ></a>
+          </div>
+        </div> 
+        <div class="subscribe-form">
+            <input type="email" class="subscribe-input" placeholder="Enter your email">
+            <button class="subscribe-btn">Subscribe</button>
+        </div>
+      </div>
+      <div class="footer">&copy; 2024 Eric NIYOKWIZERWA - Web Developer</div>
+      </footer>
+    <script src="../script/index.js"></script>    <script src="./script/subscribers.js"></script>
+    <script src="../script/FetchAllBlogs.js"></script>
+    <script src="../script/loginToLogout.js"></script>
+  </body>
+</html>
