@@ -72,7 +72,7 @@ fetch("https://my-brand-backend-ts.onrender.com/api/blogs", {
       readMoreBtnDiv.classList.add("read-more-btn");
       var readMoreLink = document.createElement("a");
       // readMoreLink.href = "./UI/Pages/singleBlog.html";
-      readMoreLink.href = `./Pages/singleBlog.html?id=${blog?._id}`;
+      readMoreLink.href = `../Pages/singleBlog.html?id=${blog?._id}`;
       readMoreLink.textContent = "Read More";
       readMoreBtnDiv.appendChild(readMoreLink);
       blogDiv.appendChild(readMoreBtnDiv);

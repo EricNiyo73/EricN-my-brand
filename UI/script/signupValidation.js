@@ -3,18 +3,18 @@ document.getElementById("registering").addEventListener("submit", function (e) {
   save();
 });
 
-let details = [];
+// let details = [];
 
-getData();
+// getData();
 
-function getData() {
-  let data = localStorage.getItem("userData");
-  if (data) {
-    details = JSON.parse(data);
-  } else {
-    setData();
-  }
-}
+// function getData() {
+//   let data = localStorage.getItem("userData");
+//   if (data) {
+//     details = JSON.parse(data);
+//   } else {
+//     setData();
+//   }
+// }
 
 function setData() {
   localStorage.setItem("userData", JSON.stringify(details));
