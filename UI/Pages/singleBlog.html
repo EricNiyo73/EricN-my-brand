@@ -19,30 +19,57 @@
     ></script>
   </head>
   <body>
-    <div class="navbar">
-      <div class="logo">EricTech</div>
-
-      <div class="navs">
-        <nav>
-          <input type="checkbox" id="check" />
-          <label for="check" class="checkbtn">
-            <i class="fas fa-bars"></i>
-          </label>
-          <!-- <a href="/UI/index.html">HOME</a>
-          <a href="/UI/index.html">ABOUT ME</a>
-          <a href="/UI/index.html">PORTFOLIO</a>
-          <a href="/UI/index.html">BLOGS</a>
-          <a href="/UI/index.html">CONTACT</a> -->
-
-          <a href="https://ericnmybrand.netlify.app/">HOME</a>
-          <a href="https://ericnmybrand.netlify.app/">ABOUT ME</a>
-          <a href="https://ericnmybrand.netlify.app/">PORTFOLIO</a>
-          <a href="https://ericnmybrand.netlify.app/">BLOGS</a>
-          <a href="https://ericnmybrand.netlify.app/">CONTACT</a>
-          <a id="loginLink" href="../Pages/Login.html">LOGIN</a>
-        </nav>
-      </div>
-    </div>
+    <nav>
+      <ul class="fixed-bar">
+        <li>
+          <a href="#"><img src="../Images/logo.png" alt="" /></a>
+        </li>
+        <li class="hidenMobile"><a href="../index.html">HOME</a></li>
+        <li class="hidenMobile">
+          <a href="../index.html">ABOUT</a>
+        </li>
+        <li class="hidenMobile">
+          <a href="../index.html">SERVICES</a>
+        </li>
+        <li class="hidenMobile">
+          <a href="../index.html">PORTFOLIO</a>
+        </li>
+        <li class="hidenMobile"><a href="../index.html">BLOGS</a></li>
+        <li class="hidenMobile">
+          <a href="../index.html">CONTACT US</a>
+        </li>
+        <li class="loginLink" id="loginLink">
+          <a href="../Pages/Login.html">LOGIN</a>
+        </li>
+        <li class="menu-button" onclick="showSidebar()">
+          <a href="#">
+            <i class="fas fa-bars" style="font-size: 48px; color: white"></i>
+          </a>
+        </li>
+      </ul>
+      <ul class="sidebar">
+        <li onclick="HideSidebar()" class="close-button">
+          <a href="#"
+            ><i class="fa fa-close" style="font-size: 48px; color: white"></i
+          ></a>
+        </li>
+        <li><a href="/UI/index.html">HOME</a></li>
+        <li>
+          <a href="../index.html">ABOUT ME</a>
+        </li>
+        <li>
+          <a href="../index.html">PORTFOLIO</a>
+        </li>
+        <li>
+          <a href="../index.html">BLOGS</a>
+        </li>
+        <li><a href="../index.html">CONTACT</a></li>
+        <li id="loginLink" class="loginLink">
+          <a href="/UI/Pages/Login.html">LOGIN</a>
+        </li>
+        <li></li>
+      </ul>
+    </nav>
     <section id="singleBlog">
       <div class="left-single-container"></div>
     </section>
@@ -94,7 +121,7 @@
       <div class="footer">&copy; 2024 Eric NIYOKWIZERWA - Web Developer</div>
     </footer>
     <script src="../script/FetchSingleBlog.js"></script>
-    <script src="../script/loginToLogout.js"></script>
-    <!-- <script src="../script/AddComment.js"></script> -->
+    <script src="../script/loginToLogout2.js"></script>
+    <script src="../script/index.js"></script>
   </body>
 </html>

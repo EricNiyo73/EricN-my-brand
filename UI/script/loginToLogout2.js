@@ -3,7 +3,6 @@
 function ToChangeLoginStatus() {
   const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
   const loginLink = document.getElementById("loginLink");
-  // const isLoggedOut = document.getElementsByClassName;
 
   if (isLoggedIn) {
     loginLink.innerHTML = '<a href="#" id="logout">LOGOUT</a>';
@@ -15,7 +14,7 @@ function ToChangeLoginStatus() {
       ToChangeLoginStatus();
     });
   } else {
-    loginLink.innerHTML = '<a href="./Pages/Login.html">LOGIN</a>';
+    loginLink.innerHTML = '<a href="./Login.html">LOGIN</a>';
   }
 }
 

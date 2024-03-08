@@ -14,6 +14,9 @@ body {
   font-family: "Poppins", sans-serif;
   color: #fff;
 }
+html {
+  scroll-behavior: smooth;
+}
 body {
   min-height: 100vh;
 }

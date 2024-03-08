@@ -60,12 +60,14 @@ document.addEventListener("DOMContentLoaded", function () {
       likesCount.classList.add("likes-count");
       likesCount.textContent = blog.likes;
       likesContainer.appendChild(likesCount);
+      var likeError = document.createElement("p");
+      likeError.id = "likeError";
 
       leftContainer.appendChild(blogImage);
       leftContainer.appendChild(blogTitle);
       leftContainer.appendChild(blogDescription);
       leftContainer.appendChild(likesContainer);
-
+      leftContainer.appendChild(likeError);
       if (!document.getElementById("commentForm")) {
         var commentForm = document.createElement("div");
         commentForm.classList.add("comment-form");
@@ -104,142 +106,153 @@ document.addEventListener("DOMContentLoaded", function () {
         button.type = "button";
         button.id = "commentHere";
         button.value = "Add Comment";
+        var commentError = document.createElement("p");
+        commentError.id = "commentError";
         commentEmpty.appendChild(label);
         commentEmpty.appendChild(textarea);
         commentEmpty.appendChild(button);
+        commentEmpty.appendChild(commentError);
 
         commentForm.appendChild(ToEnterName);
         commentForm.appendChild(commentEmpty);
 
         leftContainer.appendChild(commentForm);
-      }
-      displayComments(blogId);
 
+        // ==========================================
+      }
+      // =================================================
+      for (var i = blog.comments.length - 1; i >= 0; i--) {
+        var commentsContainer = document.createElement("div");
+        commentsContainer.classList.add("comments-container");
+
+        var commentDiv = document.createElement("div");
+        commentDiv.classList.add("comment-commentor");
+
+        var commentorDiv = document.createElement("div");
+        commentorDiv.classList.add("commentor");
+
+        var userIcon = document.createElement("span");
+        userIcon.innerHTML = '<i class="fas fa-user-circle"></i>';
+        var username = document.createElement("span");
+        username.textContent = blog.comments[i].fullName;
+        commentorDiv.appendChild(userIcon);
+        commentorDiv.appendChild(username);
+
+        var commentContentDiv = document.createElement("div");
+        commentContentDiv.classList.add("comment");
+        commentContentDiv.textContent = blog.comments[i].comment;
+
+        commentDiv.appendChild(commentorDiv);
+        commentDiv.appendChild(commentContentDiv);
+        leftContainer.appendChild(commentsContainer);
+        commentsContainer.appendChild(commentDiv);
+      }
       document
         .getElementById("commentHere")
         .addEventListener("click", function (e) {
           e.preventDefault();
-          saveComment(blogId);
+          var comment = document.getElementById("comment").value;
+          if (!comment) {
+            displayErrorMessage("commentError", "Enter your comment");
+            return;
+          }
+          resetErrorMessage("commentError");
+          let token = localStorage.getItem("token");
+          fetch(
+            `https://my-brand-backend-ts.onrender.com/api/com/like/add-comment/${blogId}`,
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: token,
+              },
+              body: JSON.stringify({ comment }),
+            }
+          )
+            .then((response) => {
+              if (response.ok) {
+                return response.json();
+              } else if (response.status === 401) {
+                throw new Error("Invalid token");
+              } else {
+                throw new Error("Failed to comment");
+              }
+            })
+            .then((data) => {
+              console.log(
+                " hhhh let me check a Comment added successfully:",
+                data
+              );
+              location.reload();
+            })
+            .catch((error) => {
+              console.error("Error adding comment:", error);
+              if (error.message === "Invalid token") {
+                displayErrorMessage("commentError", "Please Login to Comment");
+              } else {
+                displayErrorMessage(
+                  "commentError",
+                  "Failed to comment. Please try again later."
+                );
+              }
+            });
         });
 
       document
         .querySelector(".like-button")
         .addEventListener("click", function () {
-          likeBlog(blogId);
-        });
+          let token = localStorage.getItem("token");
 
-      function displayComments(blogId) {
-        var comments = JSON.parse(localStorage.getItem("UserComment")) || [];
-        var blogComments = comments.filter(function (comment) {
-          return comment.blogId === parseInt(blogId);
-        });
-        var commentsContainer = document.createElement("div");
-        commentsContainer.classList.add("comments-container");
-
-        blogComments.forEach(function (comment) {
-          var commentDiv = document.createElement("div");
-          commentDiv.classList.add("comment-commentor");
-
-          var commentorDiv = document.createElement("div");
-          commentorDiv.classList.add("commentor");
-
-          var userIcon = document.createElement("span");
-          userIcon.innerHTML = '<i class="fas fa-user-circle"></i>';
-          var username = document.createElement("span");
-          username.textContent = comment.fullName;
-          commentorDiv.appendChild(userIcon);
-          commentorDiv.appendChild(username);
-
-          var commentContentDiv = document.createElement("div");
-          commentContentDiv.classList.add("comment");
-          commentContentDiv.textContent = comment.comment;
-
-          commentDiv.appendChild(commentorDiv);
-          commentDiv.appendChild(commentContentDiv);
-          commentsContainer.appendChild(commentDiv);
-        });
-        leftContainer.appendChild(commentsContainer);
-      }
-
-      function saveComment(blogId) {
-        var comment = document.getElementById("comment");
-        var fullName = document.getElementById("fullName");
-
-        var commentId = 1;
-        var comments = JSON.parse(localStorage.getItem("UserComment")) || [];
-        if (comments.length > 0) {
-          var ids = comments.map((comment) => comment.commentId);
-          commentId = Math.max(...ids) + 1;
-        }
-
-        var isValid = true;
-
-        var newComment = {
-          fullName: userFullName,
-          blogId: parseInt(blogId),
-          commentId: commentId,
-          comment: comment.value.trim(),
-        };
-        function checkAuthentication() {
-          var isLoggedIn = localStorage.getItem("isLoggedIn");
-          return isLoggedIn === "true";
-        }
-        function YouMustLoggIn() {
-          if (!checkAuthentication()) {
-            alert("You must be logged in");
-            isValid = false;
-          }
-        }
-        YouMustLoggIn();
-        if (!newComment.blogId) {
-          alert("Blog id not found");
-          isValid = false;
-        }
-        if (!newComment.comment) {
-          alert("Please enter a comment");
-          isValid = false;
-        }
-
-        if (isValid) {
-          comments.push(newComment);
-          localStorage.setItem("UserComment", JSON.stringify(comments));
-          alert("Thank You!");
-          comment.value = "";
-          displayComments(blogId);
-
-          location.reload();
-        }
-      }
-      function likeBlog(blogId) {
-        var blogs = JSON.parse(localStorage.getItem("blogs")) || [];
-        var blogIndex = blogs.findIndex(function (blog) {
-          return blog.id === parseInt(blogId);
-        });
-        if (blogIndex !== -1) {
-          var likedBlogs = JSON.parse(localStorage.getItem("likedBlogs")) || [];
-          var userFullName = localStorage.getItem("userLoggedIn");
-          var userLikedBlog = likedBlogs.find(function (likedBlog) {
-            return (
-              likedBlog.blogId === parseInt(blogId) &&
-              likedBlog.userFullName === userFullName
-            );
-          });
-          if (!userLikedBlog) {
-            blogs[blogIndex].likes++;
-            localStorage.setItem("blogs", JSON.stringify(blogs));
-            document.querySelector(".likes-count").textContent =
-              blogs[blogIndex].likes;
-            likedBlogs.push({
-              blogId: parseInt(blogId),
-              userFullName: userFullName,
+          fetch(
+            `https://my-brand-backend-ts.onrender.com/api/com/like/like/${blogId}`,
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: token,
+              },
+            }
+          )
+            .then((response) => {
+              if (response.ok) {
+                return response.json();
+              } else if (response.status === 401) {
+                throw new Error("Invalid token");
+              } else if (response.status === 400) {
+                throw new Error("You have already liked this blog");
+              } else {
+                throw new Error("Failed to like");
+              }
+            })
+            .then((data) => {
+              console.log(" let me check if Like added successfully:", data);
+              // location.reload();
+            })
+            .catch((error) => {
+              console.error("Error adding like:", error);
+              if (error.message === "Invalid token") {
+                displayErrorMessage("likeError", "Please Login to like");
+              } else if (error.message === "You have already liked this blog") {
+                displayErrorMessage(
+                  "likeError",
+                  "You have already liked this blog"
+                );
+              } else {
+                displayErrorMessage(
+                  "likeError",
+                  "Failed to like. Please try again later."
+                );
+              }
             });
-            localStorage.setItem("likedBlogs", JSON.stringify(likedBlogs));
-          } else {
-            console.log("You have already liked this blog.");
-          }
-        } else {
-          console.error("Blog not found!");
-        }
-      }
+        });
     });
 });
+function resetErrorMessage(id) {
+  document.getElementById(id).textContent = "";
+}
+
+function displayErrorMessage(id, message) {
+  var errorMessageElement = document.getElementById(id);
+  errorMessageElement.textContent = message;
+  errorMessageElement.style.color = "red";
+}

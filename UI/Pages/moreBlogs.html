@@ -19,31 +19,8 @@
     ></script> -->
   </head>
   <body>
-    <nav>
-      <ul class="sidebar">
-        <li onclick="HideSidebar()" class="close-button">
-          <a href="#"
-            ><i class="fa fa-close" style="font-size: 48px; color: white"></i
-          ></a>
-        </li>
-        <li><a href="/UI/index.html">HOME</a></li>
-        <li>
-          <a href="../index.html">ABOUT ME</a>
-        </li>
-        <li>
-          <a href="../index.html">PORTFOLIO</a>
-        </li>
-        <li>
-          <a href="../index.html">BLOGS</a>
-        </li>
-        <li><a href="../index.html">CONTACT</a></li>
-        <li onclick="logout()">
-          <a href="./Login.html">LOGIN</a>
-        </li>
-        <li></li>
-      </ul>
-
-      <ul class="fixed-bar">
+    <nav>     
+       <ul class="fixed-bar">
         <li>
           <a href="#"><img src="../Images/logo.png" alt="" /></a>
         </li>
@@ -61,24 +38,39 @@
         <li class="hidenMobile">
           <a href="../index.html">CONTACT US</a>
         </li>
-        <li onclick="logout()" class="hidenMobile">
+        <li class="hidenMobile" id="loginLink">
           <a href="./Login.html">LOGIN</a>
         </li>
         <li class="menu-button" onclick="showSidebar()">
           <a href="#">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="24"
-              viewBox="0 -960 960 960"
-              width="24"
-            >
-              <path
-                d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"
-              />
-            </svg>
+             <i class="fas fa-bars" style="font-size: 48px; color: white"></i>
           </a>
         </li>
       </ul>
+      <ul class="sidebar">
+        <li onclick="HideSidebar()" class="close-button">
+          <a href="#"
+            ><i class="fa fa-close" style="font-size: 48px; color: white"></i
+          ></a>
+        </li>
+        <li><a href="/UI/index.html">HOME</a></li>
+        <li>
+          <a href="../index.html">ABOUT ME</a>
+        </li>
+        <li>
+          <a href="../index.html">PORTFOLIO</a>
+        </li>
+        <li>
+          <a href="../index.html">BLOGS</a>
+        </li>
+        <li><a href="../index.html">CONTACT</a></li>
+        <li id="loginLink">
+          <a href="./Login.html">LOGIN</a>
+        </li>
+        <li></li>
+      </ul>
+
+
     </nav>
     <section id="blogs">
       <div class="blogs-header">ALL BLOGS HERE</div>
@@ -128,7 +120,8 @@
       </div>
       <div class="footer">&copy; 2024 Eric NIYOKWIZERWA - Web Developer</div>
       </footer>
-    <script src="../script/index.js"></script>    <script src="./script/subscribers.js"></script>
+    <script src="../script/index.js"></script>    
+    <script src="../script/subscribers.js"></script>
     <script src="../script/FetchAllBlogs.js"></script>
     <script src="../script/loginToLogout.js"></script>
   </body>

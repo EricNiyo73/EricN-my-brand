@@ -1,54 +1,62 @@
 document.getElementById("logingin").addEventListener("submit", function (e) {
   e.preventDefault();
-  var email = document.getElementById("email").value;
-  var password = document.getElementById("password").value;
+  save();
+});
 
-  document.getElementById("emailError").textContent = "";
-  document.getElementById("secret").textContent = "";
-  document.getElementById("loginError").textContent = "";
-  var isValid = true;
+function save() {
+  var email = document.getElementById("email");
+  var password = document.getElementById("password");
 
-  if (!email) {
+  let user = {
+    email: email.value.trim(),
+    password: password.value.trim(),
+  };
+  if (!user.email) {
     displayErrorMessage("emailError", "Please enter your email address");
-    isValid = false;
-  } else if (!isValidEmail(email)) {
-    displayErrorMessage("emailError", "Please enter a valid email address");
-    isValid = false;
-  } else {
-    resetErrorMessage("emailError");
+    return;
   }
+  resetErrorMessage("emailError");
 
-  if (!password) {
+  if (!user.password) {
     displayErrorMessage("secret", "Please enter a password");
-    isValid = false;
-  } else if (password.length !== 8 || !/[!@]/.test(password)) {
+    return;
+  } else if (user.password.length < 8) {
     displayErrorMessage(
       "secret",
-      "Password must be 8 characters and contain either '@' or '!' sign"
+      "Password must be at least 8 characters long"
     );
-    isValid = false;
-  } else {
-    resetErrorMessage("secret");
+    return;
   }
+  resetErrorMessage("secret");
 
-  if (isValid) {
-    var registeredUsers = JSON.parse(localStorage.getItem("userData"));
-    if (registeredUsers) {
-      var user = registeredUsers.find(
-        (user) => user.email === email && user.password === password
-      );
-
-      if (user) {
-        alert("Login successful!");
+  fetch("https://my-brand-backend-ts.onrender.com/api/users/login", {
+    method: "POST",
+    headers: {
+      Accept: "application/json, text/plain, */*",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(user),
+  })
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else if (response.status === 400) {
+        throw new Error('"email" must be a valid email');
+      } else {
+        throw new Error("Failed to Login");
+      }
+    })
+    .then((data) => {
+      if (data.token) {
         localStorage.setItem("isLoggedIn", "true");
-        localStorage.setItem("userLoggedIn", user?.fullName);
-        if (email === "ericnemachine@gmail.com" && password === "ericeri@") {
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("userLoggedIn", data.fullName);
+        if (data.UserRole === "admin") {
           localStorage.setItem("userRole", "admin");
-          window.location.href = "Admin/message.html";
+          window.location.href = "Admin/allBlogs.html";
         } else {
           localStorage.setItem("userRole", "user");
-          // window.location.href = "/UI/index.html";
-          window.location.href = "https://ericnmybrand.netlify.app";
+          window.location.href = "../index.html";
         }
       } else {
         displayErrorMessage(
@@ -56,27 +64,27 @@ document.getElementById("logingin").addEventListener("submit", function (e) {
           "Invalid email or password. Please try again."
         );
       }
-    } else {
-      displayErrorMessage(
-        "loginError",
-        "No registered users found. Please sign up first."
-      );
-    }
-  }
-});
-
-function isValidEmail(email) {
-  var emailRegex = /^([a-z0-9._%-]+@[a-z0-9.-]+\.[a-z]{2,})$/;
-  return emailRegex.test(email);
+    })
+    .catch((error) => {
+      console.error("Error:", error.message);
+      if (error.message === '"email" must be a valid email') {
+        displayErrorMessage("emailError", "Please enter a valid email address");
+      } else {
+        displayErrorMessage(
+          "loginError",
+          "Invalid email or password. Please try again."
+        );
+      }
+    });
 }
-
 function logout() {
   localStorage.removeItem("isLoggedIn");
   localStorage.removeItem("userRole");
   localStorage.removeItem("userLoggedIn");
+  localStorage.removeItem("token");
 
-  return (window.location.href = "https://ericnmybrand.netlify.app/");
-  // return (window.location.href = "/UI/index.html");
+  // return (window.location.href = "https://ericnmybrand.netlify.app/");
+  return (window.location.href = "/UI/index.html");
 }
 function resetErrorMessage(id) {
   document.getElementById(id).textContent = "";

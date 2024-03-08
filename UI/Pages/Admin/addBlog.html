@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ADD BLOG| BRAND</title>
+    <title>ADD BLOG| BRAND</title> 
+
     <link rel="stylesheet" href="./../../css/addblog.css" />
   </head>
   <body>
@@ -11,16 +12,8 @@
       <ul class="sidebar">
         <li onclick="HideSidebar()">
           <a href="#">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="24"
-              viewBox="0 -960 960 960"
-              width="24"
-            >
-              <path
-                d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
-              />
-            </svg>
+           <i class="fa fa-close" style="font-size: 48px; color: white"></i
+          >
           </a>
         </li>
         <li><a href="/UI/index.html">DASHBOARD</a></li>
@@ -38,7 +31,7 @@
           <a href="../Admin/subscribers.html">SUBSCRIBERS</a>
         </li>
         <li>
-         <li onclick="logout()">LOGOUT</li>
+         <li onclick="logout()"><a href="#">LOGOUT</a></li>
 
         </li>
       </ul>
@@ -59,20 +52,12 @@
           <a href="../Admin/subscribers.html">SUBSCRIBERS</a>
         </li>
         <li class="hidenMobile">
-           <li onclick="logout()">LOGOUT</li>
+           <li onclick="logout()"><a href="#">LOGOUT</a></li>
         </li>
         <li class="menu-button" onclick="showSidebar()">
           <a href="#">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="24"
-              viewBox="0 -960 960 960"
-              width="24"
-            >
-              <path
-                d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"
-              />
-            </svg>
+                       <i class="fas fa-bars" style="font-size: 48px; color: white"></i>
+
           </a>
         </li>
       </ul>

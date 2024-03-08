@@ -8,6 +8,9 @@
   font-family: "Poppins", sans-serif;
   color: #fff;
 }
+html {
+  scroll-behavior: smooth;
+}
 .nav {
   height: 5rem;
   top: 0;

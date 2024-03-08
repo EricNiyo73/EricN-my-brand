@@ -3,95 +3,89 @@ document.getElementById("registering").addEventListener("submit", function (e) {
   save();
 });
 
-// let details = [];
-
-// getData();
-
-// function getData() {
-//   let data = localStorage.getItem("userData");
-//   if (data) {
-//     details = JSON.parse(data);
-//   } else {
-//     setData();
-//   }
-// }
-
-function setData() {
-  localStorage.setItem("userData", JSON.stringify(details));
-}
 function save() {
   var email = document.getElementById("email");
   var password = document.getElementById("password");
   var fullName = document.getElementById("fullName");
 
-  var isValid = true;
   let userData = {
     fullName: fullName.value.trim(),
     email: email.value.trim(),
     password: password.value.trim(),
-    isAdmin: false,
   };
-  fetch("https://my-brand-backend-ts.onrender.com/api/blogs");
+
   if (!userData.fullName) {
     displayErrorMessage("nam", "Please enter your full name");
-    isValid = false;
-  } else {
-    resetErrorMessage("nam");
+    return;
   }
+  resetErrorMessage("nam");
 
   if (!userData.email) {
     displayErrorMessage("emailError", "Please enter your email address");
-    isValid = false;
-  } else if (!isValidEmail(userData.email)) {
-    displayErrorMessage("emailError", "Please enter a valid email address");
-    isValid = false;
-  } else if (isEmailRegistered(userData.email)) {
-    displayErrorMessage(
-      "emailError",
-      " Sorry ,Email address is already registered"
-    );
-    isValid = false;
-  } else {
-    resetErrorMessage("emailError");
-  }
+    return;
+  } //else if (!isValidEmail(userData.email)) {
+  //   displayErrorMessage("emailError", "Please enter a valid email address");
+  //   return;
+  // }
+  resetErrorMessage("emailError");
 
   if (!userData.password) {
     displayErrorMessage("secret", "Please enter a password");
-    isValid = false;
-  } else if (
-    userData.password.length !== 8 ||
-    !/[!@]/.test(userData.password)
-  ) {
+    return;
+  } else if (userData.password.length < 8) {
     displayErrorMessage(
       "secret",
-      "Password must be 8 characters and contain either '@' or '!' sign"
+      "Password must be at least 8 characters long"
     );
-    isValid = false;
-  } else {
-    resetErrorMessage("secret");
+    return;
   }
-  if (isValid) {
-    details.push(userData);
-    setData();
-    alert("You have registered successfully!");
-    fullName.value = "";
-    email.value = "";
-    password.value = "";
-  }
-}
-function isEmailRegistered(email) {
-  let registeredUsers = JSON.parse(localStorage.getItem("userData"));
-  if (registeredUsers) {
-    return registeredUsers.some((user) => user.email === email);
-  } else {
-    return false;
-  }
+  resetErrorMessage("secret");
+
+  fetch("https://my-brand-backend-ts.onrender.com/api/users/signup", {
+    method: "POST",
+    headers: {
+      Accept: "application/json, text/plain, */*",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(userData),
+  })
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else if (response.status === 409) {
+        throw new Error("Email already exists");
+      } else if (response.status === 400) {
+        throw new Error('"email" must be a valid email');
+      } else {
+        throw new Error("Failed to register");
+      }
+    })
+    .then((user) => {
+      console.log("User registered successfully:", user);
+      window.location.href = "../Pages/Login.html";
+      alert("You have registered successfully!");
+      fullName.value = "";
+      email.value = "";
+      password.value = "";
+    })
+    .catch((error) => {
+      console.error("Error:", error.message);
+      if (error.message === "Email already exists") {
+        displayErrorMessage(
+          "emailError",
+          "Email address is already registered"
+        );
+      } else if (error.message === '"email" must be a valid email') {
+        displayErrorMessage("emailError", "Please enter a valid email address");
+      } else {
+        displayErrorMessage(
+          "signupError",
+          "Failed to register. Please try again later."
+        );
+      }
+    });
 }
 
-function isValidEmail(email) {
-  var emailRegex = /^([a-z0-9._%-]+@[a-z0-9.-]+\.[a-z]{2,})$/;
-  return emailRegex.test(email);
-}
 function resetErrorMessage(id) {
   document.getElementById(id).textContent = "";
 }
