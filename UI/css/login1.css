@@ -305,3 +305,27 @@ span {
     width: 80%;
   }
 }
+.loader {
+  width: fit-content;
+  padding-bottom: 5px;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 30px;
+  overflow: hidden;
+  color: #fee60c;
+  text-shadow: 0 0 0 #fee60c, 10ch 0 0 #fee60c;
+  background: linear-gradient(#fee60c 0 0) bottom left/0% 3px no-repeat;
+  animation: l14 1.5s infinite;
+}
+.loader:before {
+  content: "Wait...";
+}
+@keyframes l14 {
+  80% {
+    text-shadow: 0 0 0 #fee60c, 10ch 0 0 #fee60c;
+    background-size: 100% 3px;
+  }
+  100% {
+    text-shadow: -10ch 0 0 #fee60c, 0 0 0 #fee60c;
+  }
+}

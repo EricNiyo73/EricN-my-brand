@@ -40,14 +40,16 @@
           </div>
           <div class="form-group">
             <input type="password" placeholder="Enter a password" id="password"/>
-            <p id="secret"></p>
+            <p id="passwordError"></p>
           </div>
           <div class="form-group">
+            <div class="loader" id="loader" style="display: none; margin-left: 20%;"></div>
     <button type="submit" class="userlogin" id="userlogin" >LOGIN</button>
             <p id="loginError">
             </p>
           </div>
 
+        </form>
           <div class="not-member">
             <h5>
               Not a member
@@ -58,7 +60,7 @@
               >
             </h5>
           </div>
-</form>
+          <small id="sub-errors"></small>
         
         </div>
       </div>
@@ -77,8 +79,8 @@
           </div>
         </div>
           <div class="subscribe-form">
-            <input type="email" class="subscribe-input" placeholder="Enter your email">
-            <button class="subscribe-btn">Subscribe</button>
+            <input type="email" class="subscribe-input" id="sub-input" placeholder="Enter your email">
+            <button class="subscribe-btn" id="sub-btn">Subscribe</button>
         </div>
            <div class="contact-social-media">
           <div class="">
@@ -108,6 +110,7 @@
       </footer>
     </section>
     <script src="../script/loginValidation.js"></script>
+    <script src="../script/subscribers.js"></script>
     <script src="../script/HideLoginAndSignup.js"></script>
   </body>
 </html>

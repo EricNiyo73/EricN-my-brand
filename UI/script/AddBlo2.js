@@ -1,79 +1,61 @@
-let details = [];
-
-getData();
-
-function getData() {
-  let data = localStorage.getItem("blogs");
-  if (data) {
-    details = JSON.parse(data);
-  } else {
-    setData();
-  }
-}
-
-function setData() {
-  localStorage.setItem("blogs", JSON.stringify(details));
-}
-
-let blogImage = document.getElementById("blogImage");
-let image = "";
-
-blogImage.addEventListener("change", (e) => {
-  const img = e.target.files[0];
-
-  const reader = new FileReader();
-  reader.readAsDataURL(img);
-
-  reader.addEventListener("load", () => {
-    image = reader.result;
-  });
-});
-
 function save() {
-  let blogTitle = document.getElementById("blogTitle");
-  let blogContent = document.getElementById("blogDescription");
-  let comments = [];
-  // resetErrorMessages();
-  let id = 1;
-  if (details.length > 0) {
-    let ids = details.map((blog) => blog.id);
-    id = Math.max(...ids) + 1;
-  }
+  let title = document.getElementById("title").value.trim();
+  let description = document.getElementById("description").value.trim();
+  let image = document.getElementById("image").files[0];
+
   var isValid = true;
-  let data = {
-    id: id,
-    blogTitle: blogTitle.value.trim(),
-    blogContent: blogContent.value.trim(),
-    image: image,
-    comments: comments,
-  };
-  if (!data.blogTitle) {
+
+  if (!title) {
     displayErrorMessage("titleError", "Please enter a blog title");
     isValid = false;
   } else {
     resetErrorMessage("titleError");
   }
 
-  if (!data.blogContent) {
+  if (!description) {
     displayErrorMessage("descriptionError", "Please enter a blog description");
     isValid = false;
   } else {
     resetErrorMessage("descriptionError");
   }
 
-  if (!data.image) {
+  if (!image) {
     displayErrorMessage("imageError", "Please select an image");
     isValid = false;
   } else {
     resetErrorMessage("imageError");
   }
+
   if (isValid) {
-    details.push(data);
-    setData();
-    blogTitle.value = "";
-    blogContent.value = "";
-    window.location.href = "/UI/Pages/Admin/allBlogs.html";
-    image = "";
+    let formData = new FormData();
+    formData.append("title", title);
+    formData.append("description", description);
+    formData.append("image", image);
+    let token = localStorage.getItem("token");
+
+    fetch("https://my-brand-backend-ts.onrender.com/api/blogs/create", {
+      mode: "cors",
+      method: "POST",
+      headers: {
+        Authorization: token,
+      },
+      body: formData,
+    })
+      .then((response) => {
+        if (response.ok) {
+          alert("Blog added successfully!");
+          window.location.href = "/UI/Pages/Admin/allBlogs.html";
+        } else {
+          throw new Error("Failed to add blog");
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error.message);
+        displayErrorMessage(
+          "blogerror",
+          "Failed to add blog. Please try again later."
+        );
+      });
   }
 }
 
@@ -86,7 +68,8 @@ function displayErrorMessage(id, message) {
   errorMessageElement.textContent = message;
   errorMessageElement.style.color = "red";
 }
-document.getElementById("addBlog").addEventListener("click", function (e) {
+
+document.getElementById("addblog").addEventListener("submit", function (e) {
   e.preventDefault();
   save();
 });

@@ -63,30 +63,35 @@
       </ul>
     </nav>
     <section id="dashboard">
+      <form action="" id="addblog">
       <div class="right-container">
         <div class="add-title">
           <h3>ADD BLOG HERE</h3>
         </div>
 
         <div class="form-group">
-          <input type="text" id="blogTitle" placeholder="BLOG TITLE" />
+          <input type="text" id="title" placeholder="BLOG TITLE" />
           <p id="titleError"></p>
         </div>
         <div class="form-group">
           <textarea
-            id="blogDescription"
+            id="description"
             placeholder="BLOG DESCRIPTION"
           ></textarea>
           <p id="descriptionError"></p>
         </div>
         <div class="form-group">
-          <input type="file" id="blogImage" placeholder="Select Image" />
+          <input type="file" id="image" placeholder="Select Image" />
           <p id="imageError"></p>
         </div>
         <div class="form-group">
-          <input type="button" id="addBlog" value="ADD BLOG" />
+            <p id="blogerror">
+
+          <button id="loading">ADD BLOG</button>
+          <!-- <input type="button" id="addBlog" value="ADD BLOG" /> -->
         </div>
       </div>
+      </form>
     </section>
 
     <script src="../../script/index.js"></script>

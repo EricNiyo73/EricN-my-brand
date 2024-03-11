@@ -31,6 +31,10 @@ fetch("https://my-brand-backend-ts.onrender.com/api/blogs", {
 
         var timeSpan = document.createElement("span");
         timeSpan.textContent = blog.date;
+        if (timeSpan.textContent.length > 17) {
+          var slicedDate = timeSpan.textContent.slice(0, 17);
+          timeSpan.textContent = slicedDate;
+        }
         postedDateDiv.appendChild(clockIcon);
         postedDateDiv.appendChild(timeSpan);
         dateCommentsDiv.appendChild(postedDateDiv);

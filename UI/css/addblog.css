@@ -116,7 +116,7 @@ section {
   margin-left: 7rem;
   color: #191942;
 }
-input[type="button"] {
+button {
   border: 0;
   background-color: #fee60c;
   cursor: pointer;

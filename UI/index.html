@@ -353,7 +353,7 @@
         </div>
         <div class="contact-form">
           <p class="contact-header">FILL THIS FORM</p>
-          <form action="">
+          <form action="" id="">
             <div class="form-group">
               <input type="text" id="fullName" placeholder="Names" />
               <small id="nameError"></small>
@@ -371,11 +371,13 @@
             </div>
 
             <div class="submit">
+               <div class="loader" id="loader" style="display: none; margin-left: 20%;"></div>
               <!-- <button type="submit" class="message-btn" id="message-btn"> -->
                 <input type="button" class="message-btn" id="message-btn" value="SEND MESSAGE"/>
               </button>
             </div>
           </form>
+                    <small id="message-errors"></small>
         </div>
       </div>
       <div class="location-socilMedias">
@@ -419,12 +421,34 @@
             id="sub-input"
             placeholder="Enter your email"
           />
-          <small id="sub-errors"></small>
+          <!-- <small id="sub-errors"></small> -->
           <button class="subscribe-btn" id="sub-btn">Subscribe</button>
+          <small id="sub-errors"></small>
         </div>
       </div>
       <div class="footer">&copy; 2024 Eric NIYOKWIZERWA - Web Developer</div>
     </section>
+    <style>
+.loader {
+  width: fit-content;
+  padding-bottom: 5px;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 30px;
+  overflow: hidden;
+  color: #fee60c;
+  text-shadow: 0 0 0 #fee60c,10ch 0 0 #fee60c;
+  background: linear-gradient(#fee60c 0 0) bottom left/0% 3px no-repeat;
+  animation: l14 1.5s infinite;
+}
+.loader:before {
+  content: "Loading...";
+}
+@keyframes l14 {
+    80%  {text-shadow:    0  0 0 #fee60c,10ch 0 0 #fee60c;background-size:100% 3px}
+    100% {text-shadow: -10ch 0 0 #fee60c,0    0 0 #fee60c}
+}
+    </style>
     <script src="./script/contactValidations.js"></script>
     <script src="./script/subscribers.js"></script>
     <script src="./script/FetchBlogs.js"></script>

@@ -40,7 +40,7 @@ function save() {
     return;
   }
   resetErrorMessage("secret");
-
+  document.getElementById("loader").style.display = "block";
   fetch("https://my-brand-backend-ts.onrender.com/api/users/signup", {
     method: "POST",
     headers: {
@@ -83,6 +83,9 @@ function save() {
           "Failed to register. Please try again later."
         );
       }
+    })
+    .finally(() => {
+      document.getElementById("loader").style.display = "none";
     });
 }
 

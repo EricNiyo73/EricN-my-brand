@@ -1,9 +1,6 @@
-document.getElementById("logingin").addEventListener("submit", function (e) {
+let login = document.getElementById("logingin");
+login.addEventListener("submit", async function (e) {
   e.preventDefault();
-  save();
-});
-
-function save() {
   var email = document.getElementById("email");
   var password = document.getElementById("password");
 
@@ -18,16 +15,17 @@ function save() {
   resetErrorMessage("emailError");
 
   if (!user.password) {
-    displayErrorMessage("secret", "Please enter a password");
+    displayErrorMessage("passwordError", "Please enter a password");
     return;
   } else if (user.password.length < 8) {
     displayErrorMessage(
-      "secret",
+      "passwordError",
       "Password must be at least 8 characters long"
     );
     return;
   }
-  resetErrorMessage("secret");
+  resetErrorMessage("passwordError");
+  document.getElementById("loader").style.display = "block";
 
   fetch("https://my-brand-backend-ts.onrender.com/api/users/login", {
     method: "POST",
@@ -51,12 +49,12 @@ function save() {
         localStorage.setItem("isLoggedIn", "true");
         localStorage.setItem("token", data.token);
         localStorage.setItem("userLoggedIn", data.fullName);
-        if (data.UserRole === "admin") {
-          localStorage.setItem("userRole", "admin");
-          window.location.href = "Admin/allBlogs.html";
-        } else {
+        if (data.UserRole === "user") {
           localStorage.setItem("userRole", "user");
           window.location.href = "../index.html";
+        } else {
+          localStorage.setItem("userRole", "admin");
+          window.location.href = "Admin/allBlogs.html";
         }
       } else {
         displayErrorMessage(
@@ -75,8 +73,15 @@ function save() {
           "Invalid email or password. Please try again."
         );
       }
+    })
+    .finally(() => {
+      document.getElementById("loader").style.display = "none";
     });
-}
+});
+
+// function save() {
+
+// }
 function logout() {
   localStorage.removeItem("isLoggedIn");
   localStorage.removeItem("userRole");
