@@ -47,7 +47,6 @@ fetch("https://my-brand-backend-ts.onrender.com/api/blogs", {
       var actionsDiv = document.createElement("div");
       actionsDiv.classList.add("actions");
 
-      // Create and append the "More" button
       var moreButtonDiv = document.createElement("div");
       moreButtonDiv.classList.add("more");
       var moreButton = document.createElement("button");
@@ -56,7 +55,6 @@ fetch("https://my-brand-backend-ts.onrender.com/api/blogs", {
       moreButtonDiv.appendChild(moreButton);
       actionsDiv.appendChild(moreButtonDiv);
 
-      // Create and append Delete
       var DeleteButtonDiv = document.createElement("div");
       DeleteButtonDiv.classList.add("delete");
       var DeleteButton = document.createElement("button");
@@ -73,7 +71,6 @@ fetch("https://my-brand-backend-ts.onrender.com/api/blogs", {
       DeleteButtonDiv.appendChild(DeleteButton);
       actionsDiv.appendChild(DeleteButtonDiv);
 
-      //creation of edit button
       var EditButtonDiv = document.createElement("div");
       EditButtonDiv.classList.add("edit");
       var editButton = document.createElement("button");
@@ -85,7 +82,7 @@ fetch("https://my-brand-backend-ts.onrender.com/api/blogs", {
 
       var editlink = document.createElement("a");
       editlink.textContent = "Edit";
-      editlink.href = `./editBlog.html?id=${blog?.id}`;
+      editlink.href = `./editBlog.html?id=${blog?._id}`;
 
       editspan.appendChild(editlink);
 
@@ -104,44 +101,31 @@ fetch("https://my-brand-backend-ts.onrender.com/api/blogs", {
       blogDiv.appendChild(leftContentDiv);
 
       blogContainer.appendChild(blogDiv);
-      // ========================================================
-
-      DeleteButton.dataset.id = blog.id;
-      editButton.dataset.id = blog.id;
-
       DeleteButton.addEventListener("click", function () {
-        //   var blogId = this.dataset.id;
-        //   deleteBlog(blogId);
-        deleteBlog("${index}");
+        deleteBlog(blog._id);
       });
-      function deleteBlog(index) {
-        let BlogList;
-        if (localStorage.getItem("blogs") == null) {
-          BlogList = [];
-        } else {
-          BlogList = JSON.parse(localStorage.getItem("blogs"));
-        }
-        if (confirm("Are you sure you want to delete this item?")) {
-          BlogList.splice(index, 1);
-          localStorage.setItem("blogs", JSON.stringify(BlogList));
-
-          location.reload();
-        }
-      }
-
-      // ================================================
       editButton.addEventListener("click", function () {
-        //   var blogId = this.dataset.id;
-        //   deleteBlog(blogId);
-        editBlog("${index}");
+        window.location.href = `./editBlog.html?id=${blog._id}`;
       });
-      function editBlog(index) {
-        let blogList;
-        if (localStorage.getItem("blogs") == null) {
-          blogList = [];
-        } else {
-          blogList = JSON.parse(localStorage.getItem("blogs"));
-        }
-      }
     });
   });
+
+function deleteBlog(blogId) {
+  let token = localStorage.getItem("token");
+  if (confirm("Are you sure you want to delete this blog?")) {
+    fetch(`https://my-brand-backend-ts.onrender.com/api/blogs/${blogId}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: token,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("Blog deleted:", data);
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.error("Error deleting blog:", error);
+      });
+  }
+}

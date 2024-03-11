@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var blogId = queryParams.get("id");
 
   console.log("Blog ID:", blogId);
+  document.getElementById("loader").style.display = "block";
   fetch(`https://my-brand-backend-ts.onrender.com/api/blogs/${blogId}`, {
     method: "GET",
     headers: {
@@ -157,6 +158,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
           }
           resetErrorMessage("commentError");
+
           let token = localStorage.getItem("token");
           fetch(
             `https://my-brand-backend-ts.onrender.com/api/com/like/add-comment/${blogId}`,
@@ -245,6 +247,12 @@ document.addEventListener("DOMContentLoaded", function () {
               }
             });
         });
+    })
+    .catch((error) => {
+      console.error("Error fetching blog details:", error);
+    })
+    .finally(() => {
+      document.getElementById("loader").style.display = "none";
     });
 });
 function resetErrorMessage(id) {

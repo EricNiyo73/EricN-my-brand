@@ -1,42 +1,48 @@
 document.addEventListener("DOMContentLoaded", function () {
-  var queryParams = new URLSearchParams(window.location.search);
-  var blogId = queryParams.get("id");
+  const urlParams = new URLSearchParams(window.location.search);
+  const blogId = urlParams.get("id");
 
-  if (blogId) {
-    console.log("Blog ID:", blogId);
-  } else {
-    console.error(" hhhhh your Blog ID not found hhh");
-  }
-  var blogs = JSON.parse(localStorage.getItem("blogs")) || [];
-  var blog = blogs.find(function (blog) {
-    return blog.id === parseInt(blogId);
-  });
-  console.log(blogs);
-  if (blog) {
-    console.log("Id blog is", blog.id);
+  fetch(`https://my-brand-backend-ts.onrender.com/api/blogs/${blogId}`)
+    .then((response) => response.json())
+    .then((data) => {
+      document.getElementById("title").value = data.data.title;
+      document.getElementById("description").value = data.data.description;
+    })
+    .catch((error) => console.error("Error fetching blog details:", error));
 
-    blog.id === blogId;
+  document.getElementById("edit").addEventListener("click", function () {
+    const updatedBlog = {
+      title: document.getElementById("title").value,
+      description: document.getElementById("description").value,
+    };
 
-    document.getElementById("title").value = blog.blogTitle;
-    document.getElementById("description").value = blog.blogContent;
-    // console.log(blog.blogContent);
-    document.getElementById("edit").addEventListener("click", function () {
-      var updatedTitle = document.getElementById("title").value;
-      var updatedDescription = document.getElementById("description").value;
-      blog.blogTitle = updatedTitle;
-      blog.blogContent = updatedDescription;
+    const formData = new FormData();
+    formData.append("title", updatedBlog.title);
+    formData.append("description", updatedBlog.description);
+    formData.append("image", document.getElementById("file").files[0]);
 
-      var index = blogs.findIndex(function (item) {
-        return item.id === blogId;
+    let token = localStorage.getItem("token");
+
+    document.getElementById("loader").style.display = "block";
+
+    fetch(`https://my-brand-backend-ts.onrender.com/api/blogs/${blogId}`, {
+      method: "PUT",
+      headers: {
+        Authorization: token,
+      },
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Blog updated successfully:", data);
+        alert("Blog updated successfully");
+        window.location.href = "/UI/Pages/Admin/allBlogs.html";
+      })
+      .catch((error) => {
+        console.error("Error updating blog:", error);
+      })
+      .finally(() => {
+        document.getElementById("loader").style.display = "none";
       });
-      console.log(index);
-      if (index !== -1) {
-        blogs[index] = blog;
-      }
-
-      localStorage.setItem("blogs", JSON.stringify(blogs));
-      // location.reload();
-      window.location.href = "/UI/Pages/Admin/allBlogs.html";
-    });
-  }
+  });
 });
