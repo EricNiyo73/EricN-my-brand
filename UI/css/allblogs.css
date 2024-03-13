@@ -403,7 +403,7 @@ h1 {
     height: 5rem;
     top: 0;
     display: flex;
-    gap: 4rem;
+    gap: 1rem;
     position: fixed;
     width: 100%;
   }

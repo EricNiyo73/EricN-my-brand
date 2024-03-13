@@ -50,8 +50,8 @@ fetch("https://my-brand-backend-ts.onrender.com/api/messages", {
 
       var DeleteBtn = document.createElement("button");
       DeleteBtn.classList.add("delete-btn");
-
       DeleteBtn.textContent = "Delete";
+
       buttonBtn.appendChild(mailToLink);
       replyContainer.appendChild(buttonBtn);
       replyContainer.appendChild(DeleteBtn);
@@ -61,5 +61,31 @@ fetch("https://my-brand-backend-ts.onrender.com/api/messages", {
       messageDiv.appendChild(date);
       messageDiv.appendChild(replyContainer);
       container.appendChild(messageDiv);
+
+      DeleteBtn.addEventListener("click", function () {
+        deleteMessage(message._id);
+      });
     });
   });
+function deleteMessage(messsageId) {
+  let token = localStorage.getItem("token");
+  if (confirm("Are you sure you want to delete this Message?")) {
+    fetch(
+      `https://my-brand-backend-ts.onrender.com/api/messages/${messsageId}`,
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: token,
+        },
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("Message deleted:", data);
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.error("Error deleting Message:", error);
+      });
+  }
+}

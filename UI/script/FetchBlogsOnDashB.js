@@ -47,14 +47,6 @@ fetch("https://my-brand-backend-ts.onrender.com/api/blogs", {
       var actionsDiv = document.createElement("div");
       actionsDiv.classList.add("actions");
 
-      var moreButtonDiv = document.createElement("div");
-      moreButtonDiv.classList.add("more");
-      var moreButton = document.createElement("button");
-      moreButton.classList.add("actions-btn");
-      moreButton.textContent = "More";
-      moreButtonDiv.appendChild(moreButton);
-      actionsDiv.appendChild(moreButtonDiv);
-
       var DeleteButtonDiv = document.createElement("div");
       DeleteButtonDiv.classList.add("delete");
       var DeleteButton = document.createElement("button");

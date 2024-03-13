@@ -40,12 +40,33 @@ async function displayUserList() {
       deleteBtn.innerHTML =
         '<i class="fas fa-trash-alt"></i> <span>Delete</span>';
 
-      updateBtn.addEventListener("click", function () {});
-      deleteBtn.addEventListener("click", function () {});
-      cellActions.appendChild(updateBtn);
+      // updateBtn.addEventListener("click", function () {});
+      // cellActions.appendChild(updateBtn);
       cellActions.appendChild(deleteBtn);
+      deleteBtn.addEventListener("click", function () {
+        deleteUser(user._id);
+      });
     });
   } catch (error) {
     console.error("Error:", error.message);
+  }
+}
+function deleteUser(userId) {
+  let token = localStorage.getItem("token");
+  if (confirm("Are you sure you want to delete this user?")) {
+    fetch(`https://my-brand-backend-ts.onrender.com/api/users/${userId}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: token,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("user deleted:", data);
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.error("Error deleting user:", error);
+      });
   }
 }

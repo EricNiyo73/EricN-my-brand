@@ -18,11 +18,7 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  min-height: 100vh;
-}
-.logo {
-  color: #fee60c;
-  font-size: 25px;
+  height: 100vh;
 }
 
 /* =================================================== */
@@ -66,9 +62,6 @@ nav a:hover {
 }
 nav ul li:first-child {
   margin-right: auto;
-  font-size: 30px;
-  color: #fee60c;
-  font-weight: bold;
 }
 .sidebar {
   position: fixed;
@@ -108,10 +101,16 @@ svg {
   .sidebar {
     width: 100%;
   }
+  nav ul li:first-child {
+    /* margin-right: auto; */
+    margin-left: -280px;
+  }
+  .menu-button {
+    display: block;
+    margin-left: -100px;
+  }
 }
 /* ============================================== */
-
-/* ============================= */
 section {
   background-color: #191942;
   height: 120vh;
@@ -218,11 +217,6 @@ i {
   }
 }
 @media screen and (max-width: 435px) {
-  .logo {
-    color: #fee60c;
-    padding-left: 40px;
-    font-size: 18px;
-  }
   ul li a {
     color: #fee60c;
     font-size: 16px;
