@@ -88,8 +88,8 @@ function logout() {
   localStorage.removeItem("userLoggedIn");
   localStorage.removeItem("token");
 
-  // return (window.location.href = "https://ericnmybrand.netlify.app/");
-  return (window.location.href = "/UI/index.html");
+  return (window.location.href = "https://ericnmybrand.netlify.app/");
+  // return (window.location.href = "/UI/index.html");
 }
 function resetErrorMessage(id) {
   document.getElementById(id).textContent = "";
