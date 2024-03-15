@@ -44,7 +44,8 @@ function save() {
       .then((response) => {
         if (response.ok) {
           alert("Blog added successfully!");
-          window.location.href = "../Pages/Admin/allBlogs.html";
+          // window.location.href = "/UI/Pages/Admin/allBlogs.html";
+          window.location.reload();
         } else {
           throw new Error("Failed to add blog");
         }

@@ -36,7 +36,8 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((data) => {
         console.log("Blog updated successfully:", data);
         alert("Blog updated successfully");
-        window.location.href = "/UI/Pages/Admin/allBlogs.html";
+        window.location.reload();
+        // window.location.href = "/UI/Pages/Admin/allBlogs.html";
       })
       .catch((error) => {
         console.error("Error updating blog:", error);
