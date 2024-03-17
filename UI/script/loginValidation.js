@@ -54,7 +54,7 @@ login.addEventListener("submit", async function (e) {
           window.location.href = "../index.html";
         } else {
           localStorage.setItem("userRole", "admin");
-          window.location.href = "Admin/allBlogs.html";
+          window.location.href = "Admin/dashboard.html";
         }
       } else {
         displayErrorMessage(

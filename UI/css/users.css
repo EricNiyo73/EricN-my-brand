@@ -1,9 +1,3 @@
-body {
-  font-family: "Arial", sans-serif;
-  margin: 0;
-  padding: 0;
-  /* background-color: black; */
-}
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rubik+Bubbles&display=swap");
 
@@ -20,94 +14,237 @@ html {
 body {
   height: 100vh;
 }
-
-/* =================================================== */
-
-nav a:hover {
-  background-color: #fee60c;
-  color: #191942;
-  border-radius: 5px;
-}
-nav ul {
-  width: 100%;
-  list-style: none;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-.fixed-bar {
-  background-color: #191942;
-  position: fixed;
-  border-bottom: 1px solid #fee60c;
-}
-nav li {
-  height: 50px;
-}
-li a {
-  padding: 15px 20px;
-  border-radius: 5px;
-}
-nav a {
-  height: 100%;
-  /* padding: 0 30px; */
+a {
   text-decoration: none;
+  color: white;
+}
+li i {
+  color: white;
+}
+li {
+  list-style: none;
+}
+.btn {
+  background: #fee60c;
+  color: #191942;
+  padding: 5px 10px;
+  text-align: center;
+}
+
+.btn:hover {
+  color: #191942;
+  background: #fee60c;
+  padding: 3px 8px;
+}
+
+.title {
   display: flex;
   align-items: center;
+  justify-content: space-around;
+  padding: 15px 10px;
+  border-bottom: 2px solid #999;
+  background-color: #191942;
+}
+
+table {
+  padding: 10px;
+  background-color: #191942;
   color: white;
-  font-size: 12px;
 }
-nav a:hover {
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+}
+
+.side-menu {
+  position: fixed;
+  background: #0f0f4a;
+  width: 20vw;
+  min-height: 100vh;
+  display: flex;
+  color: white;
+  flex-direction: column;
+}
+
+.side-menu .brand-name {
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon-case {
+  color: #f1f1f1;
+  font-size: 40px;
+}
+.side-menu li {
+  font-size: 20px;
+  padding: 10px 40px;
+  color: white;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.side-menu li :hover {
   color: #191942;
-  background-color: #fee60c;
+  background: #fee60c;
+  padding: 3px 8px;
 }
-nav ul li:first-child {
-  margin-right: auto;
+.container {
+  position: absolute;
+  right: 0;
+  width: 80vw;
+  height: 100vh;
 }
-.sidebar {
+
+.container .header {
   position: fixed;
   top: 0;
   right: 0;
-  height: 50vh;
-  width: 250px;
-  z-index: 999;
-  background-color: #191950;
-  /* box-shadow: -10px 0 10px rgba(0, 0, 0, 1); */
-  display: none;
-  flex-direction: column;
+  width: 80vw;
+  height: 10vh;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.container .header .nav {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: #191942;
+}
+
+.container .header .nav .search {
+  flex: 3;
+  display: flex;
+  justify-content: center;
+}
+
+.container .header .nav .search button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container .header .nav .search button img {
+  width: 30px;
+  height: 30px;
+}
+
+.container .header .nav .user {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container .header .nav .user img {
+  width: 40px;
+  height: 40px;
+}
+
+.container .header .nav .user .img-case {
+  position: relative;
+  width: 50px;
+  height: 50px;
+}
+
+.container .header .nav .user .img-case img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.container .content {
+  position: relative;
+  margin-top: 10vh;
+  min-height: 90vh;
+  background: #f1f1f1;
+  background-color: #191942;
+}
+
+.container .content .cards {
+  padding: 20px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.container .content-2 {
+  min-height: 60vh;
+  display: flex;
+  justify-content: space-around;
   align-items: flex-start;
-  justify-content: flex-start;
+  flex-wrap: wrap;
 }
-svg {
-  background-color: #fff;
+
+.container .content-2 {
+  min-height: 50vh;
+  flex: 5;
+  margin: 0 25px 25px 25px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  display: flex;
+  flex-direction: column;
 }
-.sidebar li {
-  width: 100%;
+
+.container .content-2 table td:nth-child(1) img {
+  height: 40px;
+  width: 40px;
 }
-.sidebar a {
-  width: 100%;
+/* =================================================== */
+
+@media screen and (max-width: 1050px) {
+  .side-menu li {
+    font-size: 18px;
+  }
 }
-.menu-button {
-  display: none;
-}
-@media (max-width: 1200px) {
-  .hidenMobile {
+
+@media screen and (max-width: 940px) {
+  .side-menu li span {
     display: none;
   }
-  .menu-button {
-    display: block;
+  .container .header .nav .search {
+    display: none;
   }
+  .side-menu {
+    align-items: center;
+  }
+  .side-menu li img {
+    width: 40px;
+    height: 40px;
+  }
+  /* .side-menu li:hover {
+    background: #f05462;
+    padding: 8px 38px;
+    border: 2px solid white;
+  } */
 }
-@media (max-width: 400px) {
-  .sidebar {
-    width: 100%;
+
+@media screen and (max-width: 536px) {
+  .brand-name h1 {
+    font-size: 16px;
   }
-  nav ul li:first-child {
-    /* margin-right: auto; */
-    margin-left: -280px;
+  .container .content .cards {
+    justify-content: center;
   }
-  .menu-button {
-    display: block;
-    margin-left: -100px;
+  .side-menu li img {
+    width: 30px;
+    height: 30px;
+  }
+  .container .content .content-2 .recent-payments table th:nth-child(2),
+  .container .content .content-2 .recent-payments table td:nth-child(2) {
+    display: none;
   }
 }
 /* ============================================== */
@@ -117,17 +254,17 @@ section {
 }
 #dashboard {
   padding-top: 6rem;
+  background-color: #191942;
 }
-.header {
+/* .header {
   color: #fff;
   text-align: center;
   margin-bottom: 10px;
   margin-left: 20rem;
   width: 7%;
-}
+} */
 
 h1 {
-  margin: 0;
   border-bottom: 5px solid #fee60c;
 }
 
@@ -165,9 +302,9 @@ th {
   transition: background-color 0.3s ease;
   font-weight: bold;
 }
-span {
+/* span {
   color: #191942;
-}
+} */
 .update-btn:hover {
   background-color: green;
   color: white;
@@ -194,28 +331,6 @@ i {
   }
 }
 
-@media screen and (max-width: 970px) {
-}
-@media screen and (max-width: 768px) {
-  #dashboard {
-    width: 100%;
-  }
-
-  nav {
-    margin-left: 20rem;
-    z-index: 1;
-  }
-  nav a {
-    display: flex;
-    font-size: 15px;
-    color: #191942;
-  }
-}
-@media screen and (max-width: 600px) {
-  .header {
-    margin-left: 20px;
-  }
-}
 @media screen and (max-width: 435px) {
   ul li a {
     color: #fee60c;

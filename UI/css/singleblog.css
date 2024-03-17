@@ -146,6 +146,23 @@ svg {
   font-size: 18px;
   padding-bottom: 20px;
 }
+.like-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+}
+
+.heart-icon {
+  color: white;
+  font-size: 24px;
+  transition: color 0.3s ease;
+}
+
+.heart-icon.liked {
+  color: red;
+}
 .comments-container {
   width: 100%;
 }

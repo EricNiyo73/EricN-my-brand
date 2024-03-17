@@ -8,7 +8,9 @@
 body {
   min-height: 100vh;
 }
-
+i {
+  color: white;
+}
 a {
   text-decoration: none;
   color: white;
@@ -34,13 +36,6 @@ h3 {
   text-align: center;
 }
 
-/* .btn:hover {
-  color: #f05462;
-  background: white;
-  padding: 3px 8px;
-  border: 2px solid #f05462;
-} */
-
 .title {
   display: flex;
   align-items: center;
@@ -54,11 +49,14 @@ table {
   padding: 10px;
   background-color: #191942;
   color: white;
+  border-collapse: collapse;
 }
 
 th,
 td {
   text-align: left;
+  padding: 8px;
+  border: 1px solid #ddd;
   padding: 8px;
 }
 
@@ -89,13 +87,17 @@ td {
   align-items: center;
   cursor: pointer;
 }
-
+.side-menu li :hover {
+  color: #191942;
+  background: #fee60c;
+  padding: 3px 8px;
+  font-size: 17px;
+}
 .container {
   position: absolute;
   right: 0;
   width: 80vw;
   height: 100vh;
-  background: #f1f1f1;
 }
 
 .container .header {

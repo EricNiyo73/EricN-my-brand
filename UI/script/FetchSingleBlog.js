@@ -1,25 +1,3 @@
-// let loadingWaiting = `<style>
-// .loader {
-//   border: 4px solid rgba(0, 0, 0, 0.1);
-//   border-left-color: #007bff; /* Adjust color as needed */
-//   border-radius: 50%;
-//   width: 40px;
-//   height: 40px;
-//   animation: spin 1s linear infinite;
-//   margin: 0 auto;
-// }
-
-// @keyframes spin {
-//   0% { transform: rotate(0deg); }
-//   100% { transform: rotate(360deg); }
-// }
-
-//   </style>
-//   </head>
-//   <body>
-//   <div class="loader" style="margin-left:20%;"></div>
-//   `;
-
 document.addEventListener("DOMContentLoaded", function () {
   var queryParams = new URLSearchParams(window.location.search);
   var blogId = queryParams.get("id");
@@ -55,7 +33,10 @@ document.addEventListener("DOMContentLoaded", function () {
       likesContainer.classList.add("likes-container");
       var likeButton = document.createElement("button");
       likeButton.classList.add("like-button");
-      likeButton.textContent = "Like";
+      likeButton.id = "likeButton";
+
+      likeButton.innerHTML = `<i class="fa-solid fa-heart heart-icon"></i>`;
+
       likesContainer.appendChild(likeButton);
       var likesCount = document.createElement("span");
       likesCount.classList.add("likes-count");
@@ -69,6 +50,19 @@ document.addEventListener("DOMContentLoaded", function () {
       leftContainer.appendChild(blogDescription);
       leftContainer.appendChild(likesContainer);
       leftContainer.appendChild(likeError);
+      let isLiked = false;
+      likeButton.addEventListener("click", function () {
+        isLiked = !isLiked;
+        likeButton
+          .querySelector(".heart-icon")
+          .classList.toggle("liked", isLiked);
+        if (!isLiked) {
+          console.log("Blog liked");
+        } else {
+          console.log("Blog unliked");
+        }
+      });
+
       if (!document.getElementById("commentForm")) {
         var commentForm = document.createElement("div");
         commentForm.classList.add("comment-form");
@@ -118,9 +112,8 @@ document.addEventListener("DOMContentLoaded", function () {
         commentForm.appendChild(commentEmpty);
 
         leftContainer.appendChild(commentForm);
-
-        // ==========================================
       }
+      // ==========================================
       // =================================================
       for (var i = blog.comments.length - 1; i >= 0; i--) {
         var commentsContainer = document.createElement("div");
@@ -217,6 +210,7 @@ document.addEventListener("DOMContentLoaded", function () {
           )
             .then((response) => {
               if (response.ok) {
+                location.reload();
                 return response.json();
               } else if (response.status === 401) {
                 throw new Error("Invalid token");
@@ -228,7 +222,6 @@ document.addEventListener("DOMContentLoaded", function () {
             })
             .then((data) => {
               console.log(" let me check if Like added successfully:", data);
-              // location.reload();
             })
             .catch((error) => {
               console.error("Error adding like:", error);
