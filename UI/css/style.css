@@ -11,6 +11,9 @@
 .righthome img {
   width: 100%;
 }
+i {
+  color: #fee60c;
+}
 a {
   text-decoration: none !important;
 }
@@ -656,6 +659,9 @@ input[type="button"] {
 .locations {
   display: flex;
   gap: 20px;
+}
+.call span {
+  font-size: 13px;
 }
 .contact-social-media {
   /* margin-left: 10rem; */
