@@ -15,78 +15,70 @@
     />
   </head>
   <body>
-    <nav>
-      <ul class="sidebar">
-        <li onclick="HideSidebar()">
-          <a href="#">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="24"
-              viewBox="0 -960 960 960"
-              width="24"
-            >
-              <path
-                d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
-              />
-            </svg>
-          </a>
-        </li>
-        <li><a href="../Admin/dashboard.html">DASHBOARD</a></li>
+    <div class="side-menu">
+      <div class="brand-name">
+        <h1>EricTech</h1>
+      </div>
+      <ul>
         <li>
-          <a href="../Admin/allusers.html">ALL USERS</a>
+          <a href="/UI/index.html"
+            ><img src="../../Images/dashboard (2).png" alt="" />&nbsp;
+            <span>Dashboard</span></a
+          >
+        </li>
+
+        <li>
+          <a href="../Admin/allBlogs.html"
+            ><i class="fa-solid fa-blog"></i>&nbsp;<span>Blogs</span></a
+          >
         </li>
         <li>
-          <a href="../Admin/allBlogs.html">ALL BLOGS</a>
+          <a href="../Admin/addBlog.html"
+            ><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;
+            <span>Add Blog</span></a
+          >
         </li>
         <li>
-          <a href="../Admin/addBlog.html">ADD BLOG</a>
-        </li>
-        <li><a href="../Admin/message.html">MESSAGE</a></li>
-        <li>
-          <a href="../Admin/subscribers.html">SUBSCRIBERS</a>
+          <a href="../Admin/message.html"
+            ><i class="fa-solid fa-message"></i>&nbsp;<span>Message</span></a
+          >
         </li>
         <li>
-          <a class="" href="/UI/index.html">LOGOUT</a>
+          <a href="../Admin/subscribers.html"
+            ><i class="fa-solid fa-users"></i>&nbsp;<span>Subscriber</span></a
+          >
+        </li>
+        <li>
+          <a href="../Admin/allusers.html"
+            ><i class="fa-solid fa-users"></i>&nbsp;<span>Users</span></a
+          >
+        </li>
+        <li onclick="logout()">
+          <i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;<span
+            >Logout</span
+          >
         </li>
       </ul>
-      <ul class="fixed-bar">
-        <li><a href="../Admin/dashboard.html">DASHBOARD</li>
-        <li class="hidenMobile"><a href="../Admin/dashboard.html">DASHBOARD</a></li>
-        <li class="hidenMobile">
-          <a href="../Admin/allusers.html">ALL USERS</a>
-        </li>
-        <li class="hidenMobile">
-          <a href="../Admin/allBlogs.html">ALL BLOGS</a>
-        </li>
-        <li class="hidenMobile">
-          <a href="../Admin/addBlog.html">ADD BLOG</a>
-        </li>
-        <li class="hidenMobile"><a href="../Admin/message.html">MESSAGE</a></li>
-        <li class="hidenMobile">
-          <a href="../Admin/subscribers.html">SUBSCRIBERS</a>
-        </li>
-        <li class="hidenMobile">
-          <a class="" href="/UI/index.html">LOGOUT</a>
-        </li>
-        <li class="menu-button" onclick="showSidebar()">
-          <a href="#">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="24"
-              viewBox="0 -960 960 960"
-              width="24"
-            >
-              <path
-                d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"
-              />
-            </svg>
-          </a>
-        </li>
-      </ul>
-    </nav>
-    <section id="dashboard">
-      <div class="users">
-        <div class="header">
+    </div>
+
+    <div class="container" id="dashboard">
+      <div class="header">
+        <div class="nav">
+          <div class="search">
+            <!-- <input type="text" placeholder="Search.." />
+            <button type="submit"><img src="search.png" alt="" /></button> -->
+          </div>
+          <div class="user">
+            <a href="../Admin/addBlog.html" class="btn">Add New Blog</a>
+
+            <div class="img-case">
+              <img src="../../Images/user.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="content-2">
+        <div class="title">
           <h1>Users</h1>
         </div>
         <div class="user-table">
@@ -95,21 +87,16 @@
               <tr>
                 <th>No</th>
                 <th>Email</th>
-                <!-- <th>Actions</th> -->
               </tr>
             </thead>
-            <tbody>
-             
-            </tbody>
+            <tbody></tbody>
           </table>
         </div>
       </div>
-    </section>
+    </div>
     <script src="../../script/index.js"></script>
-    <script src="../../script/Authentication.js"></script>
     <script src="../../script/getSubscribers.js"></script>
+    <script src="../../script/Authentication.js"></script>
     <script src="../../script/loginValidation.js"></script>
-
-
   </body>
 </html>
