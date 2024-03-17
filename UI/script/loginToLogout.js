@@ -1,13 +1,14 @@
-// ======================change LOGIN TO LOGOUT========================
-
 function ToChangeLoginStatus() {
   const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-  const loginLink = document.getElementById("loginLink");
-  // const isLoggedOut = document.getElementsByClassName;
+  const desktopLoginLink = document.getElementById("desktopLoginLink");
+  const mobileLoginLink = document.getElementById("mobileLoginLink");
 
   if (isLoggedIn) {
-    loginLink.innerHTML = '<a href="#" id="logout">LOGOUT</a>';
-    document.getElementById("logout").addEventListener("click", function () {
+    desktopLoginLink.innerHTML =
+      '<a href="#" id="logout" onclick="logout()">LOGOUT</a>';
+    mobileLoginLink.innerHTML =
+      '<a href="#" id="logout" onclick="logout()">LOGOUT</a>';
+    document.getElementById("logout").addEventListener("click", function (e) {
       localStorage.removeItem("isLoggedIn");
       localStorage.removeItem("userRole");
       localStorage.removeItem("userLoggedIn");
@@ -15,8 +16,18 @@ function ToChangeLoginStatus() {
       ToChangeLoginStatus();
     });
   } else {
-    loginLink.innerHTML = '<a href="./Pages/Login.html">LOGIN</a>';
+    desktopLoginLink.innerHTML = '<a href="./Pages/Login.html">LOGIN</a>';
+    mobileLoginLink.innerHTML = '<a href="./Pages/Login.html">LOGIN</a>';
   }
 }
 
 ToChangeLoginStatus();
+function logout() {
+  localStorage.removeItem("isLoggedIn");
+  localStorage.removeItem("userRole");
+  localStorage.removeItem("userLoggedIn");
+  localStorage.removeItem("token");
+
+  return (window.location.href = "https://ericnmybrand.netlify.app/");
+  // return (window.location.href = "/UI/index.html");
+}
