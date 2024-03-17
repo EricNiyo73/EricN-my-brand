@@ -232,6 +232,10 @@ td {
 }
 
 @media screen and (max-width: 536px) {
+  .rwd-table th:nth-child(3),
+  .rwd-table td:nth-child(3) {
+    display: none;
+  }
   .brand-name h1 {
     font-size: 16px;
   }

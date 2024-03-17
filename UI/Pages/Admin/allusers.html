@@ -15,58 +15,6 @@
     />
   </head>
   <body>
-    <!-- <nav>
-      <ul class="fixed-bar">
-        <li class="logo"><a href="../Admin/dashboard.html">My Dashboard</a></li>
-        <li class="hidenMobile"><a href="/UI/index.html">HOME</a></li>
-        <li class="hidenMobile">
-          <a href="../Admin/allusers.html">ALL USERS</a>
-        </li>
-        <li class="hidenMobile">
-          <a href="../Admin/allBlogs.html">ALL BLOGS</a>
-        </li>
-        <li class="hidenMobile">
-          <a href="../Admin/addBlog.html">ADD BLOG</a>
-        </li>
-        <li class="hidenMobile"><a href="../Admin/message.html">MESSAGE</a></li>
-        <li class="hidenMobile">
-          <a href="../Admin/subscribers.html">SUBSCRIBERS</a>
-        </li>
-        <li class="hidenMobile">
-          <a onclick="logout()" class="" href="#">LOGOUT</a>
-        </li>
-        <li class="menu-button" onclick="showSidebar()">
-          <a href="#">
-            <i class="fas fa-bars" style="font-size: 48px; color: white"></i>
-          </a>
-        </li>
-      </ul>
-      <ul class="sidebar">
-        <li onclick="HideSidebar()">
-          <a href="#">
-            <i class="fa fa-close" style="font-size: 48px; color: white"></i>
-          </a>
-        </li>
-        <li><a href="/UI/index.html">HOME</a></li>
-        <li>
-          <a href="../Admin/allusers.html">ALL USERS</a>
-        </li>
-        <li>
-          <a href="../Admin/allBlogs.html">ALL BLOGS</a>
-        </li>
-        <li>
-          <a href="../Admin/addBlog.html">ADD BLOG</a>
-        </li>
-        <li class="hidenMobile"><a href="../Admin/message.html">MESSAGE</a></li>
-        <li>
-          <a href="../Admin/subscribers.html">SUBSCRIBERS</a>
-        </li>
-      </ul>
-    </nav> -->
-    <!-- <li>
-      <a onclick="logout()" class="" href="#">LOGOUT</a>
-    </li> -->
-
     <div class="side-menu">
       <div class="brand-name">
         <h1>EricTech</h1>
@@ -100,6 +48,7 @@
             ><i class="fa-solid fa-users"></i>&nbsp;<span>Subscriber</span></a
           >
         </li>
+        <li>
           <a href="../Admin/allusers.html"
             ><i class="fa-solid fa-users"></i>&nbsp;<span>Users</span></a
           >
@@ -133,11 +82,10 @@
           <h1>Users</h1>
         </div>
         <div class="user-table">
-          <table id="userTable">
+          <table id="userTable" class="rwd-table">
             <thead>
               <tr>
                 <th>No</th>
-
                 <th>Full Names</th>
                 <th>Email</th>
                 <th>Actions</th>

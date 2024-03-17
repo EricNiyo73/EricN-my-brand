@@ -147,6 +147,7 @@ svg {
   padding-bottom: 20px;
 }
 .like-button {
+  padding-top: 7px;
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -156,7 +157,7 @@ svg {
 
 .heart-icon {
   color: white;
-  font-size: 24px;
+  font-size: 30px;
   transition: color 0.3s ease;
 }
 

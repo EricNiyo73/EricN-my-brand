@@ -26,17 +26,7 @@ async function displaySubscibers() {
       var cellEmail = row.insertCell(1);
 
       cellNo.textContent = index + 1;
-      cellEmail.textContent = user.email;
-
-      // var deleteBtn = document.createElement("button");
-      // deleteBtn.className = "delete-btn";
-      // deleteBtn.innerHTML =
-      //   '<i class="fas fa-trash-alt"></i> <span>Delete</span>';
-
-      // cellActions.appendChild(deleteBtn);
-      // deleteBtn.addEventListener("click", function () {
-      //   deleteSub(user._id);
-      // });
+      cellEmail.textContent = user.email.substring(0, 20);
     });
   } catch (error) {
     console.error("Error:", error.message);
