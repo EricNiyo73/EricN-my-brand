@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("loader").style.display = "block";
   fetch(`https://my-brand-backend-ts.onrender.com/api/blogs/${blogId}`, {
     method: "GET",
+    mode: "cors",
     headers: {
       "Content-Type": "application/json",
     },
