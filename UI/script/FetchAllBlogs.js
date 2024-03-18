@@ -28,7 +28,7 @@ fetch("https://my-brand-backend-ts.onrender.com/api/blogs", {
       clockIcon.classList.add("fas", "fa-clock");
 
       var timeSpan = document.createElement("span");
-      timeSpan.textContent = blog.date;
+      timeSpan.textContent = blog.date.substring(0, 17);
       postedDateDiv.appendChild(clockIcon);
       postedDateDiv.appendChild(timeSpan);
       dateCommentsDiv.appendChild(postedDateDiv);
@@ -38,11 +38,6 @@ fetch("https://my-brand-backend-ts.onrender.com/api/blogs", {
       var commentIcon = document.createElement("i");
       commentIcon.classList.add("far", "fa-comment");
 
-      // var comments = JSON.parse(localStorage.getItem("UserComment")) || [];
-      // var blogComments = comments.filter(function (comment) {
-      //   return comment.blogId === blog.id;
-      // });
-      // var numComments = blogComments.length;
       var commentsSpan = document.createElement("span");
       commentsSpan.textContent = blog.comments.length + " Comments";
 

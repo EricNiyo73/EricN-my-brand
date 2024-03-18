@@ -37,8 +37,7 @@ async function displayUserList() {
         '<i class="fas fa-pencil-alt"></i> <span>Update</span>';
       var deleteBtn = document.createElement("button");
       deleteBtn.className = "delete-btn";
-      deleteBtn.innerHTML =
-        '<i class="fas fa-trash-alt"></i> <span>Delete</span>';
+      deleteBtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
 
       // updateBtn.addEventListener("click", function () {});
       // cellActions.appendChild(updateBtn);
