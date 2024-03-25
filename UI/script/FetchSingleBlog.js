@@ -82,8 +82,6 @@ document.addEventListener("DOMContentLoaded", function () {
           commentorInput.classList.add("loginFirst");
           commentorInput.textContent = "Login To Comment";
           commentorInput.href = `./Login.html`;
-
-          // commentorInput.placeholder = "Your Name";
           ToEnterName.appendChild(commentorInput);
         }
 

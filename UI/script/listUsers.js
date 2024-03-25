@@ -38,9 +38,6 @@ async function displayUserList() {
       var deleteBtn = document.createElement("button");
       deleteBtn.className = "delete-btn";
       deleteBtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
-
-      // updateBtn.addEventListener("click", function () {});
-      // cellActions.appendChild(updateBtn);
       cellActions.appendChild(deleteBtn);
       deleteBtn.addEventListener("click", function () {
         deleteUser(user._id);
