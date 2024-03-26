@@ -213,6 +213,7 @@ svg {
     order: 1;
     margin-left: 6px;
     padding-top: 0;
+    padding-left: 0px;
     width: 100%;
   }
   .lefthome {
@@ -387,9 +388,9 @@ svg {
 
 /* ==========================portfolio ========================= */
 #portfolio {
-  /* margin-left: 40px; */
   font-size: 13px;
   padding-left: 40px;
+  padding-right: 30px;
 }
 .portfolio {
   color: #fee60c;
@@ -403,7 +404,6 @@ svg {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 50px;
-  padding-right: 15px;
 }
 
 .single-portfolio img {
@@ -411,7 +411,6 @@ svg {
   padding-bottom: 10px;
 }
 .single-portfolio {
-  justify-content: space-between;
   align-items: center;
   box-shadow: 0px 0px 2px #7e7e83;
   padding: 14px;
@@ -472,13 +471,16 @@ svg {
 }
 @media screen and (max-width: 600px) {
   #portfolio {
-    margin-left: 10px;
+    /* margin-left: 0px; */
+    padding-left: 10px;
+    padding-right: 10px;
     font-size: 13px;
   }
   .all-portfolio {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 20px;
+    padding-right: 0px;
     width: 100%;
   }
 }
@@ -740,6 +742,7 @@ input[type="button"] {
 }
 @media screen and (max-width: 600px) {
   #contact {
+    padding-left: 10px;
     width: 100%;
   }
   .contact-form {
@@ -748,6 +751,7 @@ input[type="button"] {
   .paragraph-form {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
+    padding-left: 0px;
   }
   .contact-social-media {
     margin-left: 10px;
