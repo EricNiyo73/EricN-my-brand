@@ -776,4 +776,7 @@ input[type="button"] {
   .form-group label {
     display: none;
   }
+  input[type="button"] {
+    font-size: 10px;
+  }
 }
